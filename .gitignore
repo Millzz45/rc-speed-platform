@@ -1,0 +1,25 @@
+# build output (tools/rebuild.sh regenerates it; the shipped STLs live in stl/)
+out/
+__pycache__/
+*.pyc
+.venv/
+firmware/build/
+firmware/esp32/carcomputer/build/
+
+# never commit these: personal-use or third-party models, scenes, slicer projects
+*.glb
+*.gltf
+*.obj
+*.ply
+*.blend
+*.3mf
+*.npz
+*.pkl
+assets/
+bodies/
+renders/
+
+# local secrets / OS noise
+.env
+*.local
+.DS_Store

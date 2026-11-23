@@ -1,0 +1,886 @@
+[
+ {
+  "part": "tub_front",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   153.0,
+   138.5,
+   26.0
+  ],
+  "zrot": 0,
+  "vol": 48.8,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "4 walls / 25% gyroid",
+  "note": "floor down; countersinks face the bed; D34 isogrid pockets up",
+  "hours": 3.7
+ },
+ {
+  "part": "tub_mid",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   122.0,
+   138.5,
+   26.0
+  ],
+  "zrot": 0,
+  "vol": 44.6,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "4 walls / 25% gyroid",
+  "note": "floor down",
+  "hours": 3.4
+ },
+ {
+  "part": "tub_rear",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   138.0,
+   138.5,
+   19.0
+  ],
+  "zrot": 0,
+  "vol": 44.9,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "4 walls / 25% gyroid",
+  "note": "floor down",
+  "hours": 3.4
+ },
+ {
+  "part": "deck_front",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   40.0,
+   66.0,
+   3.0
+  ],
+  "zrot": 0,
+  "vol": 3.5,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "100% (3 mm plate)",
+  "note": "D34: lap tongue under",
+  "hours": 0.5
+ },
+ {
+  "part": "deck_mid",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   168.3,
+   168.3,
+   9.0
+  ],
+  "zrot": 45.0,
+  "vol": 17.1,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "100% (3 mm plate)",
+  "note": "D34: isogrid windows; prints on the diagonal",
+  "hours": 2.0
+ },
+ {
+  "part": "deck_rear",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   119.0,
+   66.0,
+   17.8
+  ],
+  "zrot": 0,
+  "vol": 18.2,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "100% (3 mm plate)",
+  "note": "D34: runs over the rear bulkheads; rear tower bolts through it",
+  "hours": 2.2
+ },
+ {
+  "part": "front_mount",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   25.0,
+   96.0,
+   18.0
+  ],
+  "zrot": 0,
+  "vol": 18.7,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 60%",
+  "note": "beam rear face down; lips point up",
+  "hours": 1.5
+ },
+ {
+  "part": "rear_mount",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   26.2,
+   105.0,
+   32.0
+  ],
+  "zrot": 0,
+  "vol": 16.2,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 60%",
+  "note": "bar down, posts up",
+  "hours": 1.3
+ },
+ {
+  "part": "twist_key",
+  "material": "PETG-CF",
+  "qty": 2,
+  "size": [
+   22.0,
+   10.0,
+   13.0
+  ],
+  "zrot": 0,
+  "vol": 0.8,
+  "supports": "none",
+  "layer": 0.12,
+  "walls": "100%",
+  "note": "",
+  "hours": 0.2
+ },
+ {
+  "part": "bumper",
+  "material": "TPU 95A",
+  "qty": 1,
+  "size": [
+   28.6,
+   72.0,
+   15.0
+  ],
+  "zrot": 0,
+  "vol": 24.7,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "2 walls / 25% gyroid",
+  "note": "crush block: the gyroid infill sets the crush force",
+  "hours": 2.8
+ },
+ {
+  "part": "rear_spacer",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   8.5,
+   60.0,
+   3.0
+  ],
+  "zrot": 0,
+  "vol": 1.4,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "4 walls / 100%",
+  "note": "D53: flat as fitted (a 3 mm plate, its 4 floor-screw holes vertical): nothing overhangs; the 4 floor screws pass through it into the rear mount",
+  "hours": 0.3
+ },
+ {
+  "part": "rim",
+  "material": "PETG-CF",
+  "qty": 4,
+  "size": [
+   52.0,
+   52.0,
+   24.0
+  ],
+  "zrot": 0,
+  "vol": 17.1,
+  "supports": "organic (D53 sliced: 5.0 g under the 52 mm face-web bridges)",
+  "layer": 0.12,
+  "walls": "5 walls / 25%",
+  "note": "D45: inboard face down; bought Tamiya 54994 belted tyre CA-glued to both bead seats; balance <= 0.5 g",
+  "hours": 1.4
+ },
+ {
+  "part": "battery_pad",
+  "material": "TPU 95A",
+  "qty": 2,
+  "size": [
+   100.0,
+   6.0,
+   3.0
+  ],
+  "zrot": 0,
+  "vol": 1.8,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "100%",
+  "note": "",
+  "hours": 0.4
+ },
+ {
+  "part": "tech_tray",
+  "material": "PETG",
+  "qty": 1,
+  "size": [
+   91.5,
+   55.6,
+   9.0
+  ],
+  "zrot": 0,
+  "vol": 8.2,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "3 walls / 100% (3 mm plate)",
+  "note": "D51: flat, pockets up; 3 M3 screws into the deck bosses' captive hex nuts on washers (D55)",
+  "hours": 1.1
+ },
+ {
+  "part": "tech_lid",
+  "material": "PETG",
+  "qty": 1,
+  "size": [
+   94.2,
+   58.3,
+   20.7
+  ],
+  "zrot": 0,
+  "vol": 9.9,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "2 walls / 100% (1 mm skin)",
+  "note": "D51: top on the bed, walls up; snaps over the tray edges",
+  "hours": 1.2
+ },
+ {
+  "part": "esc_pad",
+  "material": "TPU 95A",
+  "qty": 2,
+  "size": [
+   32.0,
+   6.0,
+   3.0
+  ],
+  "zrot": 0,
+  "vol": 0.5,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "100%",
+  "note": "",
+  "hours": 0.2
+ },
+ {
+  "part": "bulkhead_half",
+  "material": "PETG-CF",
+  "qty": 2,
+  "size": [
+   33.8,
+   43.0,
+   22.3
+  ],
+  "zrot": 0,
+  "vol": 10.2,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 40%",
+  "note": "cheek inner face down (bearing seat round); rear pair (same part both sides)",
+  "hours": 0.9
+ },
+ {
+  "part": "bulkhead_fL",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   33.8,
+   43.0,
+   22.3
+  ],
+  "zrot": 0,
+  "vol": 10.2,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 40%",
+  "note": "D46 front LEFT: diff seat offset for a whole-tooth front belt (mark L)",
+  "hours": 0.9
+ },
+ {
+  "part": "bulkhead_fR",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   33.8,
+   43.0,
+   22.3
+  ],
+  "zrot": 0,
+  "vol": 10.2,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 40%",
+  "note": "D46 front RIGHT: mirror offset (mark R)",
+  "hours": 0.9
+ },
+ {
+  "part": "lower_arm",
+  "material": "PETG-CF",
+  "qty": 4,
+  "size": [
+   10.5,
+   32.5,
+   33.0
+  ],
+  "zrot": 0,
+  "vol": 4.1,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 50%",
+  "note": "on its side: pin holes vertical; same part at all 4 corners",
+  "hours": 0.4
+ },
+ {
+  "part": "upper_link",
+  "material": "PETG-CF",
+  "qty": 4,
+  "size": [
+   11.0,
+   34.5,
+   6.0
+  ],
+  "zrot": 0,
+  "vol": 1.1,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "on its side; same part at all 4 corners",
+  "hours": 0.3
+ },
+ {
+  "part": "upright_rear",
+  "material": "PETG-CF",
+  "qty": 2,
+  "size": [
+   19.0,
+   42.0,
+   13.0
+  ],
+  "zrot": 0,
+  "vol": 5.1,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 50%",
+  "note": "bearing axis vertical",
+  "hours": 0.5
+ },
+ {
+  "part": "knuckle_L",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   28.5,
+   40.0,
+   18.5
+  ],
+  "zrot": 0,
+  "vol": 6.0,
+  "supports": "tree, under the steering arm",
+  "layer": 0.16,
+  "walls": "5 walls / 50%",
+  "note": "front left",
+  "hours": 0.6
+ },
+ {
+  "part": "knuckle_R",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   28.5,
+   40.0,
+   18.5
+  ],
+  "zrot": 0,
+  "vol": 6.0,
+  "supports": "tree, under the steering arm",
+  "layer": 0.16,
+  "walls": "5 walls / 50%",
+  "note": "front right (mirror)",
+  "hours": 0.6
+ },
+ {
+  "part": "droop_front",
+  "material": "PETG",
+  "qty": 2,
+  "size": [
+   6.0,
+   6.0,
+   3.8
+  ],
+  "zrot": 0,
+  "vol": 0.1,
+  "supports": "none",
+  "layer": 0.12,
+  "walls": "100%",
+  "note": "D33: front droop stack, one ring on each bought front shock's shaft (0.3 mm wheel droop)",
+  "hours": 0.2
+ },
+ {
+  "part": "droop_rear",
+  "material": "PETG",
+  "qty": 2,
+  "size": [
+   6.0,
+   6.0,
+   1.8
+  ],
+  "zrot": 0,
+  "vol": 0.0,
+  "supports": "none",
+  "layer": 0.12,
+  "walls": "100%",
+  "note": "D33: rear droop stack, one ring on each bought rear shock's shaft (3 mm wheel droop)",
+  "hours": 0.2
+ },
+ {
+  "part": "droop_spacer_05",
+  "material": "PETG",
+  "qty": 8,
+  "size": [
+   6.0,
+   6.0,
+   0.5
+  ],
+  "zrot": 0,
+  "vol": 0.0,
+  "supports": "none",
+  "layer": 0.12,
+  "walls": "100%",
+  "note": "D30: 0.5 mm droop shim, add/remove to tune",
+  "hours": 0.2
+ },
+ {
+  "part": "tower_front",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   10.4,
+   78.0,
+   12.5
+  ],
+  "zrot": 0,
+  "vol": 5.3,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "4 walls / 40%",
+  "note": "",
+  "hours": 0.5
+ },
+ {
+  "part": "tower_rear",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   10.4,
+   78.0,
+   12.5
+  ],
+  "zrot": 0,
+  "vol": 5.3,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "4 walls / 40%",
+  "note": "",
+  "hours": 0.5
+ },
+ {
+  "part": "bellcrank_L",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   16.5,
+   11.1,
+   3.0
+  ],
+  "zrot": 0,
+  "vol": 0.3,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "",
+  "hours": 0.2
+ },
+ {
+  "part": "bellcrank_R",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   21.5,
+   16.0,
+   3.0
+  ],
+  "zrot": 0,
+  "vol": 0.5,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "has the servo arm",
+  "hours": 0.2
+ },
+ {
+  "part": "drag_link",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   61.0,
+   9.0,
+   4.0
+  ],
+  "zrot": 0,
+  "vol": 1.1,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "M3 ball-stud cups",
+  "hours": 0.3
+ },
+ {
+  "part": "tie_rod",
+  "material": "PETG-CF",
+  "qty": 2,
+  "size": [
+   43.1,
+   9.0,
+   4.0
+  ],
+  "zrot": 0,
+  "vol": 0.8,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "M3 ball-stud cups",
+  "hours": 0.2
+ },
+ {
+  "part": "servo_link",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   73.6,
+   9.0,
+   4.0
+  ],
+  "zrot": 0,
+  "vol": 1.4,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "length [unverified] until the servo horn is fitted; the 2 spare_servo_link parts are 2 mm shorter / longer",
+  "hours": 0.3
+ },
+ {
+  "part": "spare_servo_link_m2",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   71.6,
+   9.0,
+   4.0
+  ],
+  "zrot": 0,
+  "vol": 1.3,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "D53 QA: servo_link 2 mm shorter (the horn tip is [unverified]); keep the one that gives equal lock, not on the car's mass",
+  "hours": 0.3
+ },
+ {
+  "part": "spare_servo_link_p2",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   75.6,
+   9.0,
+   4.0
+  ],
+  "zrot": 0,
+  "vol": 1.4,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "D53 QA: servo_link 2 mm longer (the horn tip is [unverified]); keep the one that gives equal lock, not on the car's mass",
+  "hours": 0.3
+ },
+ {
+  "part": "motor_plate",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   55.9,
+   43.0,
+   16.4
+  ],
+  "zrot": 0,
+  "vol": 10.0,
+  "supports": "tree, under the plate (bosses on the bed side)",
+  "layer": 0.16,
+  "walls": "5 walls / 50%",
+  "note": "touches the motor only on 2 standoff bosses",
+  "hours": 0.9
+ },
+ {
+  "part": "lay_holder",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   24.3,
+   43.0,
+   9.3
+  ],
+  "zrot": 0,
+  "vol": 4.1,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 50%",
+  "note": "nut trap up; clamps the fixed layshaft axle (D50)",
+  "hours": 0.4
+ },
+ {
+  "part": "lay_spacer_head",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   9.0,
+   9.0,
+   7.2
+  ],
+  "zrot": 0,
+  "vol": 0.3,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "ring between the axle screw head and the motor plate (D50)",
+  "hours": 0.2
+ },
+ {
+  "part": "lay_spacer_in",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   6.9,
+   6.9,
+   4.9
+  ],
+  "zrot": 0,
+  "vol": 0.1,
+  "supports": "none",
+  "layer": 0.12,
+  "walls": "100%",
+  "note": "thin ring on the axle inside the spur (D50)",
+  "hours": 0.2
+ },
+ {
+  "part": "lay_drum",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   26.0,
+   26.0,
+   13.9
+  ],
+  "zrot": 0,
+  "vol": 3.0,
+  "supports": "none",
+  "layer": 0.12,
+  "walls": "100%",
+  "note": "spur flange down; wear part",
+  "hours": 0.5
+ },
+ {
+  "part": "wheel_hex",
+  "material": "PETG-CF",
+  "qty": 4,
+  "size": [
+   12.0,
+   13.9,
+   6.0
+  ],
+  "zrot": 0,
+  "vol": 0.6,
+  "supports": "none",
+  "layer": 0.12,
+  "walls": "100%",
+  "note": "wear part",
+  "hours": 0.2
+ },
+ {
+  "part": "C1_tolerance_ladder",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   78.0,
+   26.0,
+   5.0
+  ],
+  "zrot": 0,
+  "vol": 9.0,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "coupon: see rnd/stage3/coupons.md",
+  "hours": 1.2
+ },
+ {
+  "part": "C2_insert_block",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   40.0,
+   20.0,
+   12.0
+  ],
+  "zrot": 0,
+  "vol": 4.6,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "coupon: see rnd/stage3/coupons.md",
+  "hours": 0.7
+ },
+ {
+  "part": "C4_hinge_lug",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   30.0,
+   10.0,
+   12.0
+  ],
+  "zrot": 0,
+  "vol": 1.9,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "coupon: see rnd/stage3/coupons.md",
+  "hours": 0.4
+ },
+ {
+  "part": "C4_hinge_arm",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   14.5,
+   25.0,
+   8.0
+  ],
+  "zrot": 0,
+  "vol": 1.9,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "coupon: see rnd/stage3/coupons.md",
+  "hours": 0.4
+ },
+ {
+  "part": "G1_bearing_ladder",
+  "material": "PLA-CF",
+  "qty": 1,
+  "size": [
+   110.0,
+   40.0,
+   5.0
+  ],
+  "zrot": 0,
+  "vol": 16.0,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "coupon: see rnd/stage3/coupons.md",
+  "hours": 1.9
+ },
+ {
+  "part": "G2_diff_span_gauge",
+  "material": "PLA-CF",
+  "qty": 1,
+  "size": [
+   60.0,
+   82.0,
+   6.0
+  ],
+  "zrot": 0,
+  "vol": 20.3,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "coupon: see rnd/stage3/coupons.md",
+  "hours": 2.4
+ },
+ {
+  "part": "G3_motor_face_gauge",
+  "material": "PLA-CF",
+  "qty": 1,
+  "size": [
+   48.0,
+   48.0,
+   3.0
+  ],
+  "zrot": 0,
+  "vol": 4.5,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "coupon: see rnd/stage3/coupons.md",
+  "hours": 0.6
+ },
+ {
+  "part": "G4_axle_pin_gauge",
+  "material": "PLA-CF",
+  "qty": 1,
+  "size": [
+   70.0,
+   26.0,
+   6.0
+  ],
+  "zrot": 0,
+  "vol": 9.9,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "coupon: see rnd/stage3/coupons.md",
+  "hours": 1.3
+ },
+ {
+  "part": "C3_tread_rim_segment",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   23.9,
+   13.5,
+   24.0
+  ],
+  "zrot": 0,
+  "vol": 1.2,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "coupon: see rnd/stage3/coupons.md",
+  "hours": 0.3
+ },
+ {
+  "part": "C3_tread_segment",
+  "material": "TPU 95A",
+  "qty": 1,
+  "size": [
+   8.8,
+   16.6,
+   21.6
+  ],
+  "zrot": 0,
+  "vol": 2.5,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "coupon: see rnd/stage3/coupons.md",
+  "hours": 0.6
+ }
+]

@@ -1,0 +1,14 @@
+item,qty,material,grams_est,note
+gt2_body_front_L,1,PETG,39.0,"solid skin (2 lines at 0.6 mm); supports: tree, inside only (paint side clean)"
+gt2_body_front_R,1,PETG,42.6,"solid skin (2 lines at 0.6 mm); supports: tree, inside only (paint side clean)"
+gt2_body_mid_L,1,PETG,41.5,"solid skin (2 lines at 0.6 mm); supports: tree, inside only (paint side clean)"
+gt2_body_mid_R,1,PETG,43.6,"solid skin (2 lines at 0.6 mm); supports: tree, inside only (paint side clean)"
+gt2_body_rear_L,1,PETG,49.8,"solid skin (2 lines at 0.6 mm); supports: tree, inside only (paint side clean)"
+gt2_body_rear_R,1,PETG,53.8,"solid skin (2 lines at 0.6 mm); supports: tree, inside only (paint side clean)"
+gt2_carrier_front,1,PETG-CF,31.8,100% infill; supports: none
+gt2_carrier_rear,1,PETG-CF,16.2,4 walls / 40%; supports: none
+gt2_wing,1,PETG-CF,23.2,4 walls / 40%; supports: tree: under the plane and end plates (pegs up)
+M3 x 12 socket-cap screw,34,steel,,26 seam stations + 8 carrier columns
+M3 x 10 socket-cap screw,2,steel,,"wing-lock, one per leg peg"
+M3 hex nut DIN 934,36,steel,,"captive in printed pockets (no inserts, no glue)"
+TOTAL printed,,,341.5,CAD volume x density x fill (±15 %) until sliced

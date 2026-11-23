@@ -1,0 +1,12 @@
+# Python 3.11+; versions are the ones the CAD was built and checked with
+build123d==0.13.0
+trimesh==5.2.1
+numpy==2.5.4
+matplotlib==3.11.2
+shapely==2.2.0
+# D56: the GT-2 body generator (cad/body_gt2.py)
+manifold3d==3.5.4
+scipy==1.18.1
+embreex==4.4.0.post1
+rtree==1.4.1
+networkx==3.7

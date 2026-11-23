@@ -1,0 +1,1622 @@
+[
+ {
+  "tag": "tub servo post 1",
+  "mode": "nut",
+  "nut_kind": "hex",
+  "entry": [
+   31.75,
+   -34.0,
+   14.0
+  ],
+  "axis": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "t": 3.0,
+  "slot": "u-",
+  "slot_dir": [
+   1.0,
+   -0.0,
+   -0.0
+  ],
+  "slot_len": 3.75,
+  "breach_mm3": 0,
+  "pad_mm3": 5.75,
+  "nut": [
+   31.75,
+   -38.35,
+   14.0
+  ],
+  "pocket_mm": 2.7,
+  "hole_mm": 8.7,
+  "part": "tub_front",
+  "qty": 1
+ },
+ {
+  "tag": "tub servo post 2",
+  "mode": "nut",
+  "nut_kind": "hex",
+  "entry": [
+   31.75,
+   -34.0,
+   24.0
+  ],
+  "axis": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "t": 3.0,
+  "slot": "u-",
+  "slot_dir": [
+   1.0,
+   -0.0,
+   -0.0
+  ],
+  "slot_len": 3.75,
+  "breach_mm3": 0,
+  "pad_mm3": 5.75,
+  "nut": [
+   31.75,
+   -38.35,
+   24.0
+  ],
+  "pocket_mm": 2.7,
+  "hole_mm": 8.7,
+  "part": "tub_front",
+  "qty": 1
+ },
+ {
+  "tag": "tub servo post 3",
+  "mode": "nut",
+  "nut_kind": "hex",
+  "entry": [
+   80.75,
+   -34.0,
+   14.0
+  ],
+  "axis": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "t": 3.5,
+  "slot": "u+",
+  "slot_dir": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "slot_len": 3.75,
+  "breach_mm3": 0,
+  "pad_mm3": 5.75,
+  "nut": [
+   80.75,
+   -38.85,
+   14.0
+  ],
+  "pocket_mm": 2.7,
+  "hole_mm": 9.2,
+  "part": "tub_mid",
+  "qty": 1
+ },
+ {
+  "tag": "tub servo post 4",
+  "mode": "nut",
+  "nut_kind": "hex",
+  "entry": [
+   80.75,
+   -34.0,
+   24.0
+  ],
+  "axis": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "t": 3.5,
+  "slot": "u+",
+  "slot_dir": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "slot_len": 3.75,
+  "breach_mm3": 0,
+  "pad_mm3": 5.75,
+  "nut": [
+   80.75,
+   -38.85,
+   24.0
+  ],
+  "pocket_mm": 2.7,
+  "hole_mm": 9.2,
+  "part": "tub_mid",
+  "qty": 1
+ },
+ {
+  "tag": "deck tech boss 1",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   47.5,
+   -2.0,
+   59.5
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 3.0,
+  "slot": "v-",
+  "slot_dir": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "slot_len": 6.0,
+  "breach_mm3": 0.0,
+  "pad_mm3": 102.11,
+  "nut": [
+   47.5,
+   -2.0,
+   54.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.5,
+  "part": "deck_mid",
+  "qty": 1
+ },
+ {
+  "tag": "deck tech boss 2",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   112.0,
+   22.5,
+   59.5
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 3.0,
+  "slot": "u-",
+  "slot_dir": [
+   -0.0,
+   1.0,
+   -0.0
+  ],
+  "slot_len": 3.75,
+  "breach_mm3": 0.0,
+  "pad_mm3": 116.32,
+  "nut": [
+   112.0,
+   22.5,
+   54.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.5,
+  "part": "deck_mid",
+  "qty": 1
+ },
+ {
+  "tag": "deck tech boss 3",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   112.0,
+   -22.5,
+   59.5
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 3.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 3.75,
+  "breach_mm3": 0.0,
+  "pad_mm3": 116.32,
+  "nut": [
+   112.0,
+   -22.5,
+   54.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.5,
+  "part": "deck_mid",
+  "qty": 1
+ },
+ {
+  "tag": "front mount bumper L",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -35.0,
+   26.0,
+   17.0
+  ],
+  "axis": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "t": 3.0,
+  "slot": "v+",
+  "slot_dir": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "slot_len": 8.25,
+  "breach_mm3": 0,
+  "nut": [
+   -30.25,
+   26.0,
+   17.0
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 11.5,
+  "part": "front_mount",
+  "qty": 1
+ },
+ {
+  "tag": "front mount bumper R",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -35.0,
+   -26.0,
+   17.0
+  ],
+  "axis": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "t": 3.0,
+  "slot": "v+",
+  "slot_dir": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "slot_len": 8.25,
+  "breach_mm3": 0,
+  "nut": [
+   -30.25,
+   -26.0,
+   17.0
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 11.5,
+  "part": "front_mount",
+  "qty": 1
+ },
+ {
+  "tag": "front mount splitter tab L",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -35.0,
+   42.0,
+   17.0
+  ],
+  "axis": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "t": 3.0,
+  "slot": "u-",
+  "slot_dir": [
+   -0.0,
+   1.0,
+   -0.0
+  ],
+  "slot_len": 6.25,
+  "breach_mm3": 0,
+  "nut": [
+   -30.25,
+   42.0,
+   17.0
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.5,
+  "part": "front_mount",
+  "qty": 1
+ },
+ {
+  "tag": "front mount splitter tab R",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -35.0,
+   -42.0,
+   17.0
+  ],
+  "axis": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "t": 3.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 6.25,
+  "breach_mm3": 0,
+  "nut": [
+   -30.25,
+   -42.0,
+   17.0
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.5,
+  "part": "front_mount",
+  "qty": 1
+ },
+ {
+  "tag": "front mount floor (-30, 10)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -30.0,
+   10.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 3.0,
+  "slot": "v+",
+  "slot_dir": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "slot_len": 5.25,
+  "breach_mm3": 0,
+  "nut": [
+   -30.0,
+   10.0,
+   13.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.5,
+  "part": "front_mount",
+  "qty": 1
+ },
+ {
+  "tag": "front mount floor (-30, -10)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -30.0,
+   -10.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 3.0,
+  "slot": "v+",
+  "slot_dir": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "slot_len": 5.25,
+  "breach_mm3": 0,
+  "nut": [
+   -30.0,
+   -10.0,
+   13.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.5,
+  "part": "front_mount",
+  "qty": 1
+ },
+ {
+  "tag": "front mount floor (-30, 18.5)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -30.0,
+   18.5,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 6.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "slot_len": 4.75,
+  "breach_mm3": 0.494,
+  "nut": [
+   -30.0,
+   18.5,
+   16.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 12.5,
+  "part": "front_mount",
+  "qty": 1
+ },
+ {
+  "tag": "front mount floor (-30, -18.5)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -30.0,
+   -18.5,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 6.0,
+  "slot": "u-",
+  "slot_dir": [
+   -0.0,
+   -1.0,
+   -0.0
+  ],
+  "slot_len": 4.75,
+  "breach_mm3": 0.494,
+  "nut": [
+   -30.0,
+   -18.5,
+   16.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 12.5,
+  "part": "front_mount",
+  "qty": 1
+ },
+ {
+  "tag": "rear mount twist-key post L",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   296.5,
+   45.0,
+   44.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 5.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 6.5,
+  "breach_mm3": 0.316,
+  "nut": [
+   296.5,
+   45.0,
+   37.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 11.5,
+  "part": "rear_mount",
+  "qty": 1
+ },
+ {
+  "tag": "rear mount twist-key post R",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   296.5,
+   -45.0,
+   44.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 5.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 6.5,
+  "breach_mm3": 0.316,
+  "nut": [
+   296.5,
+   -45.0,
+   37.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 11.5,
+  "part": "rear_mount",
+  "qty": 1
+ },
+ {
+  "tag": "rear mount floor (293.0, 14)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   293.0,
+   14.0,
+   12.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 2.5,
+  "slot": "v+",
+  "slot_dir": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "slot_len": 3.75,
+  "breach_mm3": 0.0,
+  "pad_mm3": 191.53,
+  "nut": [
+   293.0,
+   14.0,
+   16.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "rear_mount",
+  "qty": 1
+ },
+ {
+  "tag": "rear mount floor (293.0, -14)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   293.0,
+   -14.0,
+   12.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 2.5,
+  "slot": "v+",
+  "slot_dir": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "slot_len": 3.75,
+  "breach_mm3": 0.0,
+  "pad_mm3": 191.53,
+  "nut": [
+   293.0,
+   -14.0,
+   16.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "rear_mount",
+  "qty": 1
+ },
+ {
+  "tag": "rear mount floor (293.0, 24)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   293.0,
+   24.0,
+   12.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 2.5,
+  "slot": "v+",
+  "slot_dir": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "slot_len": 3.75,
+  "breach_mm3": 0.0,
+  "pad_mm3": 191.53,
+  "nut": [
+   293.0,
+   24.0,
+   16.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "rear_mount",
+  "qty": 1
+ },
+ {
+  "tag": "rear mount floor (293.0, -24)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   293.0,
+   -24.0,
+   12.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 2.5,
+  "slot": "v+",
+  "slot_dir": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "slot_len": 3.75,
+  "breach_mm3": 0.0,
+  "pad_mm3": 191.53,
+  "nut": [
+   293.0,
+   -24.0,
+   16.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "rear_mount",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead floor (-10.0, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -10.0,
+   27.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 3.5,
+  "slot": "u-",
+  "slot_dir": [
+   -0.0,
+   -1.0,
+   -0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 14.95,
+  "nut": [
+   -10.0,
+   27.0,
+   14.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 10.0,
+  "part": "bulkhead_half",
+  "qty": 2
+ },
+ {
+  "tag": "bulkhead floor (+10.0, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   10.0,
+   27.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 3.5,
+  "slot": "u-",
+  "slot_dir": [
+   -0.0,
+   -1.0,
+   -0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 14.95,
+  "nut": [
+   10.0,
+   27.0,
+   14.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 10.0,
+  "part": "bulkhead_half",
+  "qty": 2
+ },
+ {
+  "tag": "bulkhead floor (-12.2, 40)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -12.25,
+   40.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 8.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 112.46,
+  "nut": [
+   -12.25,
+   40.0,
+   18.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 14.5,
+  "part": "bulkhead_half",
+  "qty": 2
+ },
+ {
+  "tag": "bulkhead floor (+12.2, 40)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   12.25,
+   40.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 8.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 112.46,
+  "nut": [
+   12.25,
+   40.0,
+   18.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 14.5,
+  "part": "bulkhead_half",
+  "qty": 2
+ },
+ {
+  "tag": "bulkhead deck (-10, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -10.0,
+   27.0,
+   52.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 2.5,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 45.95,
+  "nut": [
+   -10.0,
+   27.0,
+   47.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "bulkhead_half",
+  "qty": 2
+ },
+ {
+  "tag": "bulkhead deck (+10, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   10.0,
+   27.0,
+   52.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 2.5,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 45.95,
+  "nut": [
+   10.0,
+   27.0,
+   47.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "bulkhead_half",
+  "qty": 2
+ },
+ {
+  "tag": "bulkhead floor (-10.0, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -10.0,
+   27.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 3.5,
+  "slot": "u-",
+  "slot_dir": [
+   -0.0,
+   -1.0,
+   -0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 14.95,
+  "nut": [
+   -10.0,
+   27.0,
+   14.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 10.0,
+  "part": "bulkhead_fL",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead floor (+10.0, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   10.0,
+   27.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 3.5,
+  "slot": "u-",
+  "slot_dir": [
+   -0.0,
+   -1.0,
+   -0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 14.95,
+  "nut": [
+   10.0,
+   27.0,
+   14.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 10.0,
+  "part": "bulkhead_fL",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead floor (-12.2, 40)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -12.25,
+   40.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 8.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 112.46,
+  "nut": [
+   -12.25,
+   40.0,
+   18.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 14.5,
+  "part": "bulkhead_fL",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead floor (+12.2, 40)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   12.25,
+   40.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 8.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 112.46,
+  "nut": [
+   12.25,
+   40.0,
+   18.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 14.5,
+  "part": "bulkhead_fL",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead deck (-10, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -10.0,
+   27.0,
+   52.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 2.5,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 45.95,
+  "nut": [
+   -10.0,
+   27.0,
+   47.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "bulkhead_fL",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead deck (+10, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   10.0,
+   27.0,
+   52.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 2.5,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 45.95,
+  "nut": [
+   10.0,
+   27.0,
+   47.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "bulkhead_fL",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead floor (-10.0, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -10.0,
+   27.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 3.5,
+  "slot": "u-",
+  "slot_dir": [
+   -0.0,
+   -1.0,
+   -0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 14.95,
+  "nut": [
+   -10.0,
+   27.0,
+   14.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 10.0,
+  "part": "bulkhead_fR",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead floor (+10.0, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   10.0,
+   27.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 3.5,
+  "slot": "u-",
+  "slot_dir": [
+   -0.0,
+   -1.0,
+   -0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 14.95,
+  "nut": [
+   10.0,
+   27.0,
+   14.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 10.0,
+  "part": "bulkhead_fR",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead floor (-12.2, 40)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -12.25,
+   40.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 8.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 112.46,
+  "nut": [
+   -12.25,
+   40.0,
+   18.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 14.5,
+  "part": "bulkhead_fR",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead floor (+12.2, 40)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   12.25,
+   40.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 8.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 112.46,
+  "nut": [
+   12.25,
+   40.0,
+   18.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 14.5,
+  "part": "bulkhead_fR",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead deck (-10, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   -10.0,
+   27.0,
+   52.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 2.5,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 45.95,
+  "nut": [
+   -10.0,
+   27.0,
+   47.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "bulkhead_fR",
+  "qty": 1
+ },
+ {
+  "tag": "bulkhead deck (+10, 27)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   10.0,
+   27.0,
+   52.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 2.5,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 45.95,
+  "nut": [
+   10.0,
+   27.0,
+   47.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "bulkhead_fR",
+  "qty": 1
+ },
+ {
+  "tag": "motor plate floor (126.7, -8)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   126.69,
+   -8.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 2.5,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "slot_len": 3.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 186.26,
+  "nut": [
+   126.69,
+   -8.0,
+   13.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "motor_plate",
+  "qty": 1
+ },
+ {
+  "tag": "motor plate floor (142.7, -8)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   142.69,
+   -8.0,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 2.5,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "slot_len": 3.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 186.11,
+  "nut": [
+   142.69,
+   -8.0,
+   13.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "motor_plate",
+  "qty": 1
+ },
+ {
+  "tag": "motor plate deck (137.7, -11)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   137.69,
+   -11.0,
+   52.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 3.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 77.02,
+  "nut": [
+   137.69,
+   -11.0,
+   47.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.5,
+  "part": "motor_plate",
+  "qty": 1
+ },
+ {
+  "tag": "motor plate deck (164.4, -15)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   164.41,
+   -15.1,
+   52.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 2.5,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 77.78,
+  "nut": [
+   164.41,
+   -15.1,
+   47.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "motor_plate",
+  "qty": 1
+ },
+ {
+  "tag": "lay holder floor (159.9, 12.5)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   159.91,
+   12.5,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 2.5,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 123.56,
+  "nut": [
+   159.91,
+   12.5,
+   13.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "lay_holder",
+  "qty": 1
+ },
+ {
+  "tag": "lay holder floor (174.9, 12.5)",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   174.91,
+   12.5,
+   9.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "t": 2.5,
+  "slot": "u-",
+  "slot_dir": [
+   -0.0,
+   -1.0,
+   -0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 123.03,
+  "nut": [
+   174.91,
+   12.5,
+   13.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "lay_holder",
+  "qty": 1
+ },
+ {
+  "tag": "lay holder deck",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   167.41,
+   12.5,
+   52.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 2.5,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 4.25,
+  "breach_mm3": 0.0,
+  "pad_mm3": 100.68,
+  "nut": [
+   167.41,
+   12.5,
+   47.75
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.0,
+  "part": "lay_holder",
+  "qty": 1
+ },
+ {
+  "tag": "coupon C2 boss 1",
+  "mode": "nut",
+  "nut_kind": "washer",
+  "entry": [
+   12.0,
+   10.0,
+   12.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 3.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 7.25,
+  "breach_mm3": 0.107,
+  "nut": [
+   12.0,
+   10.0,
+   7.25
+  ],
+  "pocket_mm": 3.5,
+  "hole_mm": 9.5,
+  "part": "C2_insert_block",
+  "qty": 1
+ },
+ {
+  "tag": "coupon C2 boss 2",
+  "mode": "nut",
+  "nut_kind": "hex",
+  "entry": [
+   28.0,
+   10.0,
+   12.0
+  ],
+  "axis": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "t": 3.0,
+  "slot": "u+",
+  "slot_dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "slot_len": 7.25,
+  "breach_mm3": 0,
+  "nut": [
+   28.0,
+   10.0,
+   7.65
+  ],
+  "pocket_mm": 2.7,
+  "hole_mm": 8.7,
+  "part": "C2_insert_block",
+  "qty": 1
+ }
+]

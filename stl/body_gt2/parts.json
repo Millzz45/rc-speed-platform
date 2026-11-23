@@ -1,0 +1,298 @@
+{
+ "body": "GT-2 (original, D56)",
+ "wall_mm": 1.2,
+ "length": 430.0,
+ "width": 192.0,
+ "height": 108.5,
+ "parts": [
+  {
+   "part": "gt2_body_front_L",
+   "material": "PETG",
+   "qty": 1,
+   "zrot": 0,
+   "size": [
+    168.0,
+    103.6,
+    92.1
+   ],
+   "vol": 30.72,
+   "mass_g": 39.0,
+   "tris": 22794,
+   "walls": "solid skin (2 lines at 0.6 mm)",
+   "supports": "tree, inside only (paint side clean)"
+  },
+  {
+   "part": "gt2_body_front_R",
+   "material": "PETG",
+   "qty": 1,
+   "zrot": 0,
+   "size": [
+    168.0,
+    110.6,
+    92.1
+   ],
+   "vol": 33.58,
+   "mass_g": 42.6,
+   "tris": 24436,
+   "walls": "solid skin (2 lines at 0.6 mm)",
+   "supports": "tree, inside only (paint side clean)"
+  },
+  {
+   "part": "gt2_body_mid_L",
+   "material": "PETG",
+   "qty": 1,
+   "zrot": 0,
+   "size": [
+    139.0,
+    90.3,
+    99.5
+   ],
+   "vol": 32.65,
+   "mass_g": 41.5,
+   "tris": 22448,
+   "walls": "solid skin (2 lines at 0.6 mm)",
+   "supports": "tree, inside only (paint side clean)"
+  },
+  {
+   "part": "gt2_body_mid_R",
+   "material": "PETG",
+   "qty": 1,
+   "zrot": 0,
+   "size": [
+    139.0,
+    97.3,
+    99.5
+   ],
+   "vol": 34.37,
+   "mass_g": 43.6,
+   "tris": 23772,
+   "walls": "solid skin (2 lines at 0.6 mm)",
+   "supports": "tree, inside only (paint side clean)"
+  },
+  {
+   "part": "gt2_body_rear_L",
+   "material": "PETG",
+   "qty": 1,
+   "zrot": 0,
+   "size": [
+    149.0,
+    93.2,
+    92.2
+   ],
+   "vol": 39.22,
+   "mass_g": 49.8,
+   "tris": 26138,
+   "walls": "solid skin (2 lines at 0.6 mm)",
+   "supports": "tree, inside only (paint side clean)"
+  },
+  {
+   "part": "gt2_body_rear_R",
+   "material": "PETG",
+   "qty": 1,
+   "zrot": 0,
+   "size": [
+    149.0,
+    100.2,
+    92.2
+   ],
+   "vol": 42.39,
+   "mass_g": 53.8,
+   "tris": 28388,
+   "walls": "solid skin (2 lines at 0.6 mm)",
+   "supports": "tree, inside only (paint side clean)"
+  },
+  {
+   "part": "gt2_carrier_front",
+   "material": "PETG-CF",
+   "qty": 1,
+   "zrot": 45.0,
+   "size": [
+    138.5,
+    138.5,
+    4.0
+   ],
+   "vol": 25.41,
+   "mass_g": 31.8,
+   "tris": 2684,
+   "walls": "100% infill",
+   "supports": "none"
+  },
+  {
+   "part": "gt2_carrier_rear",
+   "material": "PETG-CF",
+   "qty": 1,
+   "zrot": 45.0,
+   "size": [
+    140.4,
+    140.4,
+    4.0
+   ],
+   "vol": 18.79,
+   "mass_g": 16.2,
+   "tris": 1456,
+   "walls": "4 walls / 40%",
+   "supports": "none"
+  },
+  {
+   "part": "gt2_wing",
+   "material": "PETG-CF",
+   "qty": 1,
+   "zrot": 0,
+   "size": [
+    52.0,
+    162.0,
+    104.4
+   ],
+   "vol": 26.92,
+   "mass_g": 23.2,
+   "tris": 1404,
+   "walls": "4 walls / 40%",
+   "supports": "tree: under the plane and end plates (pegs up)"
+  }
+ ],
+ "mass_g": 341.5,
+ "info": {
+  "stations": 26,
+  "stations_by_seam": {
+   "front_L|mid_L": 4,
+   "front_R|mid_R": 4,
+   "mid_L|rear_L": 4,
+   "mid_R|rear_R": 4,
+   "front_L|front_R": 3,
+   "mid_L|mid_R": 3,
+   "rear_L|rear_R": 4
+  },
+  "columns": {
+   "front": [
+    {
+     "x": -60.0,
+     "y": 56.0,
+     "height": 9.3
+    },
+    {
+     "x": -62.0,
+     "y": 34.0,
+     "height": 9.8
+    }
+   ],
+   "rear": [
+    {
+     "x": 315.0,
+     "y": 78.0,
+     "height": 15.7
+    },
+    {
+     "x": 315.0,
+     "y": 30.0,
+     "height": 21.7
+    }
+   ]
+  },
+  "dropped": {
+   "front_L": [],
+   "front_R": [],
+   "mid_L": [],
+   "mid_R": [],
+   "rear_L": [],
+   "rear_R": []
+  },
+  "wing_deck_z": {
+   "1": 62.64,
+   "-1": 62.64
+  },
+  "wall": {
+   "n": 3644,
+   "p1": 1.199,
+   "p50": 1.2,
+   "p99": 2.763,
+   "min": 1.195
+  },
+  "closest_chassis": [
+   [
+    "drag_link",
+    0.0,
+    1.52
+   ],
+   [
+    "tower_f",
+    0.0,
+    2.8
+   ],
+   [
+    "tech_lid",
+    0.0,
+    3.74
+   ],
+   [
+    "tower_r",
+    0.0,
+    3.87
+   ],
+   [
+    "crank_L",
+    0.0,
+    4.35
+   ],
+   [
+    "crank_R",
+    0.0,
+    4.35
+   ],
+   [
+    "servo_link",
+    0.0,
+    4.48
+   ],
+   [
+    "tub_front",
+    0.0,
+    6.0
+   ]
+  ],
+  "under_clr": []
+ },
+ "checks": {
+  "clash": [],
+  "tight": [],
+  "overlap": [],
+  "bed": [],
+  "gaps": {
+   "gt2_body_front_L": [
+    1.52,
+    "drag_link"
+   ],
+   "gt2_body_front_R": [
+    1.52,
+    "drag_link"
+   ],
+   "gt2_body_mid_L": [
+    6.0,
+    "tub_front"
+   ],
+   "gt2_body_mid_R": [
+    6.0,
+    "tub_front"
+   ],
+   "gt2_body_rear_L": [
+    2.54,
+    "tower_r"
+   ],
+   "gt2_body_rear_R": [
+    2.54,
+    "tower_r"
+   ],
+   "gt2_carrier_front": [
+    0.5,
+    "front_mount"
+   ],
+   "gt2_carrier_rear": [
+    0.0,
+    "rear_mount"
+   ],
+   "gt2_wing": [
+    99.0,
+    null
+   ]
+  }
+ }
+}
