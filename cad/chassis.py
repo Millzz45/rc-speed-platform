@@ -320,8 +320,12 @@ def tech_envelopes():
 @lru_cache(maxsize=1)
 def deck_full():
     d = S2.solid(deck_poly(), P.DECK_Z, P.DECK_T)
+    steer = {(P.STEER_PIVOT[0], s * P.STEER_PIVOT[1]) for s in (1, -1)}
     for (x, y) in P.deck_holes():
-        d -= clear_hole(x, y, P.DECK_Z, P.DECK_T)
+        if getattr(P, "TOP_LOAD", False) and (x, y) in steer:              # D57: pivot flat-head from below, countersunk
+            d -= csk_hole(x, y, P.DECK_Z, P.DECK_T)
+        else:
+            d -= clear_hole(x, y, P.DECK_Z, P.DECK_T)
     # 1 mm step under the bellcranks (D21): deck is 2 mm thick ahead of STEER_STEP_X
     d -= box(P.STEER_STEP_X - P.DECK_X[0] + 2, 120, 2, P.DECK_X[0] - 2, -60, P.DECK_Z + P.DECK_T - 1)
     # servo-link slot (the link drops from the right bellcrank to the servo horn)

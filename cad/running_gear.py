@@ -3,7 +3,7 @@ wheels, plus envelopes of the bought power-path parts for the fit check.
 
 Printed designs (one design is used at several corners wherever possible, so a spares box
 needs few different parts):
-  bulkhead_half  x2 rear + bulkhead_fL/fR (D46: front diff seat offset for a whole-tooth belt)  cheek with the diff bearing seat + lower-arm hinge lugs + upper-link tab
+  bulkhead_rL/rR (D57d; bulkhead_half x2 before) + bulkhead_fL/fR (D46: front diff seat offset for a whole-tooth belt)  cheek with the diff bearing seat + lower-arm hinge lugs + upper-link tab
   lower_arm      x4  same at every corner: X-pin hole (rear upright) + vertical ball-stud hole (front knuckle)
   upper_link     x4  same at every corner, same two-hole trick
   upright_rear   x2  fixed rear hub carrier, two 10x15 bearings
@@ -70,12 +70,16 @@ def belt_fit():
 
 
 # bulkhead half (left side shown; right side = same part turned 180 deg about Z)
-def bulkhead_half(dx=0.0):
-    """D34: the cheek is a rounded XZ profile (r 4 corners) with radiused windows above and below the diff bearing;
-    the hinge lugs are rounded and braced to the cheek by 3 mm gussets (was a stack of raw boxes). Interfaces unchanged."""
+def _bulkhead_body(dx=0.0, hw=15.0, z_wide=None):
+    """Cheek + lugs + gussets + link tab + bearing seat, no threaded points (shared by the D34 one-piece bulkhead and
+    the D57 saddle/cap pair). D57b z_wide: the cheek is 15 mm half width below z_wide and hw above it."""
     y0, y1 = P.CHEEK_Y
     R = S2.rect
-    prof = S2.rounded(R(-15, ZF, 15, P.DECK_Z), r_convex=4.0)
+    if z_wide is None:
+        prof = S2.rounded(R(-hw, ZF, hw, P.DECK_Z), r_convex=4.0)
+    else:
+        prof = S2.rounded(S2.rounded(R(-P.BH_LOW_HW, ZF, P.BH_LOW_HW, P.DECK_Z), r_convex=4.0)
+                          .union(S2.rounded(R(-hw, z_wide, hw, P.DECK_Z), r_convex=1.0)), r_concave=1.0)
     prof = prof.difference(S2.rounded(R(-7, P.DIFF_Z + 11, 7, P.DIFF_Z + 17), r_convex=2.5))     # over the bearing
     prof = prof.difference(S2.rounded(R(-5, ZF + 3, 5, P.DIFF_Z - P.DIFF_BRG[1] / 2 - 2.8), r_convex=2.0))   # under it
     prof = S2.rounded(prof.union(R(-15, ZF, 15, ZF + 2)), r_concave=0.0)                     # flat foot on the floor
@@ -92,13 +96,85 @@ def bulkhead_half(dx=0.0):
     for xa, xb in ((-8, -3.5), (3.5, 8)):
         c += S2.solid(S2.rounded(R(xa, y1 - 1, xb, y1 + 6), r_convex=1.0), P.LINK_IN[1] - 4, 8)   # D30: tab Z 40..48
     c -= cyl_x(PIN, 20, 0, P.LINK_IN[0], P.LINK_IN[1])
-    # floor screw inserts (cheek + lugs) and deck/tower screw inserts on top
-    # D53: captive square nuts (cad/anchors.py) for the floor screws (cheek + lugs) and the deck/tower screws on top
+    return c
+
+
+def _floor_anchors(c):
+    # D53: captive nuts (cad/anchors.py) for the floor screws (cheek + lugs)
     for (x, y) in P.bulkhead_floor_holes(0.0):
         if y > 0:
             c = AN.anchor(c, (x, y, ZF), (0, 0, 1), f"bulkhead floor ({x:+.1f}, {y:.0f})")
+    return c
+
+
+def bulkhead_half(dx=0.0, front=False, side=1):
+    """D34: the cheek is a rounded XZ profile (r 4 corners) with radiused windows above and below the diff bearing;
+    the hinge lugs are rounded and braced to the cheek by 3 mm gussets (was a stack of raw boxes). Interfaces unchanged.
+    D57 (P.TOP_LOAD): this is the lower SADDLE; bulkhead_cap() is the part above it."""
+    if getattr(P, "TOP_LOAD", False):
+        return bulkhead_saddle(dx, front, side)
+    c = _floor_anchors(_bulkhead_body(dx))
     for dx_ in (-10, 10):
         c = AN.anchor(c, (dx_, 27.0, P.DECK_Z), (0, 0, -1), f"bulkhead deck ({dx_:+d}, 27)")
+    return c
+
+
+def _local_slot(front, side):
+    """D57d: the U-slot edges in this part's own x (the right-hand part is the left one's frame turned 180 deg about Z)."""
+    lo, hi = P.bh_slot(0.0 if front else P.WB)
+    return (lo, hi) if side > 0 else (-hi, -lo)
+
+
+def _local_screws(side):
+    """D57d: the two cap-screw x positions in this part's own frame (vehicle: forward -13.90, aft +12.90 from the axle)."""
+    return tuple(side * x for x in P.BH_SCREW_X)
+
+
+def _cap_zone(dx, grow=0.0, front=False, side=1):
+    """D57: the bearing cap's volume: everything above the post tops + the plug that fills the U-slot down to the diff axis.
+    grow widens the plug in X only (the saddle's slot clearance); the horizontal faces stay shared. D57d: the slot is
+    asymmetric (drift room only toward the layshaft) and already includes the front bearing's offset, so dx is not used."""
+    y0 = P.CHEEK_Y[0] - 5
+    lo, hi = _local_slot(front, side)
+    above = box(80, 40, P.DECK_Z + 5 - P.BH_POST_Z, -40, y0, P.BH_POST_Z)
+    plug = box(hi - lo + 2 * grow, 40, P.BH_POST_Z - P.DIFF_Z + 0.01, lo - grow, y0, P.DIFF_Z)
+    return above + plug
+
+
+def bulkhead_saddle(dx=0.0, front=False, side=1):
+    """D57 lower saddle: floor, arm lugs, gussets, the lower half of the diff bearing seat, and two posts either side of an
+    open U-slot (BH_SLOT_HW, wide enough for the bearing's belt arc). Captive hex nuts in the post tops take the deck screws
+    that hold the cap; the floor screws are unchanged."""
+    c = _bulkhead_body(dx, P.BH_HW, P.BH_STEP_Z)
+    y1 = P.CHEEK_Y[1]
+    edges = _local_slot(front, side)
+    for sx, e in ((-1, edges[0]), (1, edges[1])):   # posts 1.2 mm thicker outboard, so the washer + nut pocket fits as drawn (its slot
+        xa, xb = sorted((e + sx * P.BH_CLR, sx * P.BH_HW))                  # opens inboard; nothing may grow into the diff side)
+        c += S2.solid(S2.rounded(S2.rect(xa, y1 - 1.0, xb, y1 + P.BH_POST_PAD), r_convex=1.0), P.BH_STEP_Z, P.BH_POST_Z - P.BH_STEP_Z)
+    c = c - _cap_zone(dx, P.BH_CLR, front, side)
+    c = _floor_anchors(c)
+    for xs in _local_screws(side):
+        c = AN.anchor(c, (xs, P.BH_SCREW_Y, P.BH_POST_Z), (0, 0, -1), f"bulkhead deck ({xs:+.2f}, {P.BH_SCREW_Y:g})",
+                      t_try=(2.5, 3.0, 3.5),   # shallow: a 7 mm-deep nut would need an M3 x 35 (BH_POST_Z is set for M3 x 30)
+                      keep=box(80, 40, 60, -40, P.CHEEK_Y[0] - 40, 0)    # no pad growth past the cheek's inner face (the diff is there)
+                      + box(40, 80, P.BH_STEP_Z + 20, P.BH_LOW_HW, -40, -20)      # D57b: nor outboard below BH_STEP_Z (shell floor)
+                      + box(40, 80, P.BH_STEP_Z + 20, -40 - P.BH_LOW_HW, -40, -20))
+    return c
+
+
+def bulkhead_cap(dx=0.0, front=False, side=1):
+    """D57 bearing cap: the plug (upper half of the diff bearing seat and of the outdrive hole) + a bridge on the post tops
+    with the upper-link tab. No screws of its own: the two deck screws pass through it into the saddle's post nuts, so once
+    the deck is off the cap lifts away (pull the upper-link pin first) and the diff lifts out on its belt arc."""
+    c = _bulkhead_body(dx, P.BH_HW, P.BH_STEP_Z) & _cap_zone(dx, 0.0, front, side)
+    y0, y1 = P.CHEEK_Y
+    c &= S2.solid_xz(S2.rounded(S2.rect(-P.BH_BRIDGE_HW, P.DIFF_Z - 1, P.BH_BRIDGE_HW, P.DECK_Z), r_convex=3.0), y0 - 5, 50)
+    for xs in _local_screws(side):
+        c -= clear_hole(xs, P.BH_SCREW_Y, P.BH_POST_Z, P.DECK_Z - P.BH_POST_Z)
+    for sx in (1, -1):                       # spring clearance: shocks sit behind the axle; the right-hand cap is this one turned
+        lo, hi = shock_ends(0.0, 1)          # 180 deg, so its spring is at local -x: clear both sides
+        lo, hi = (sx * lo[0], lo[1], lo[2]), (sx * hi[0], hi[1], hi[2])
+        c -= rod(lo, hi, P.SPRING_OD + 2.0)
     return c
 
 
@@ -244,13 +320,14 @@ def tower(z_base):
     t = S2.solid_yz(prof, px, 6.0)
     for s in (1, -1):
         y = s * P.SHOCK_TOP[0]
-        t += S2.solid(S2.rounded(R(px, s * 20 - (11 if s < 0 else 0), 14, s * 20 + (11 if s > 0 else 0)), r_convex=2.0),
+        bx = P.BH_SCREW_X[1] if getattr(P, "TOP_LOAD", False) else 10              # D57d: feet on the aft cap screws
+        t += S2.solid(S2.rounded(R(px, s * 20 - (11 if s < 0 else 0), max(14, bx + 2.8), s * 20 + (11 if s > 0 else 0)), r_convex=2.0),
                       z_base, 3)                                                                 # foot on the deck
         t += S2.solid_xz(S2.poly([(px + 5.9, z_base + 2.9), (13.5, z_base + 2.9), (px + 5.9, z_base + 9)]),
                          s * 21 - (2.5 if s > 0 else 0.5), 3.0)                                  # gusset
         t += cyl_x(8.0, 3.5, px + 6.0 + 1.75, y, zt)                                            # stand-off boss
         t -= cyl_x(P.M3_CLEAR, 40, P.SHOCK_X - 6, y, zt)
-        t -= clear_hole(10, s * 27.0, z_base, 20)
+        t -= clear_hole(bx, s * (P.BH_SCREW_Y if getattr(P, "TOP_LOAD", False) else 27.0), z_base, 20)
         lo, hi = shock_ends(0.0, s)                                          # D33: feet notched round the spring
         L = math.dist(lo, hi)
         d = [(b - a) / L for a, b in zip(lo, hi)]
@@ -275,12 +352,13 @@ def bellcrank(side=1):
     pts = [(P.TIE_IN[0], side * P.TIE_IN[1]), (px - DRAG_ARM, y)]          # D39: tie-rod arm points forward
     if side < 0:
         pts.append(P.SERVO_ARM)                                                # servo arm (right crank)
-    c = cyl_z(9, z1 - z0, px, y, z0)
+    top_load = getattr(P, "TOP_LOAD", False)
+    c = cyl_z(9, (P.PIVOT_SPACER[1] - 0.4) if top_load else (z1 - z0), px, y, z0)   # D57: hub 0.4 mm shorter than its spacer
     for (x, yy) in pts:
         c += rod((px, y, z0 + 1.5), (x, yy, z0 + 1.5), 6) & box(60, 60, z1 - z0, px - 30, y - 30, z0)
         c += cyl_z(7, z1 - z0, x, yy, z0)
         c -= cyl_z(BALL_HOLE, 10, x, yy, z0 - 1)
-    c -= cyl_z(P.M3_CLEAR, 10, px, y, z0 - 1)
+    c -= cyl_z(P.PIVOT_SPACER[0] + 0.2 if top_load else P.M3_CLEAR, 10, px, y, z0 - 1)   # D57: turns on the spacer
     return c
 
 
@@ -376,7 +454,7 @@ def lay_spacer_in():
     return cyl_y(6.9, L, P.LAYSHAFT_X, P.MOTOR_PLATE_Y[1] + 0.05 + L / 2, P.LAYSHAFT_Z) - cyl_y(P.LAY_AXLE["d"] + 0.3, 40, P.LAYSHAFT_X, 0, P.LAYSHAFT_Z)
 
 
-def motor_plate():
+def _motor_plate_raw():
     """D34: the plate is a rounded XZ profile with radiused windows round a solid ring at the motor (bolt bosses)
     and another at the layshaft bearing, instead of a slab with one square hole. Interfaces unchanged."""
     x, z = P.LAYSHAFT_X, P.LAYSHAFT_Z
@@ -416,15 +494,52 @@ def motor_plate():
             # one under each screw head, and the screw hole is 4.2 mm so the hot screw does not touch the plastic.
             p -= slot_y(P.MOTOR_SCREW_HOLE, bx, bz)                           # D55: slotted for the pinion range
     p -= cyl_y(P.LAY_AXLE["d"] + 0.2, 20, x, (ya + yb) / 2, z)               # D50: the fixed axle passes here (was a bearing seat)
+    return p
+
+
+LAY_CAP_X0 = P.LAYSHAFT_X - 9.5          # D57: front edge of the plate's layshaft cap (the solid ring round the axle starts here)
+LIP_CAP_X0 = P.LAYSHAFT_X - 19.0         # D57: the plate's top lip is cut from here aft (1 mm ahead of the spur's 18 mm tip radius)
+
+
+def _plate_cap_zone(grow=0.0):
+    """D57: the part of the motor plate that lifts off with the deck: the plate above the axle centre from LAY_CAP_X0 aft
+    (legs 3 mm lower at both ends locate it in X on the plate's tongue), the deck-lap screw block, and the strip of the top
+    lip that overhangs the spur (y > -11), so the spur can rise past it. grow opens the plate's cut at the vertical faces
+    only (front face, leg faces, lip strip); the axle split face stays shared."""
+    x, z = P.LAYSHAFT_X, P.LAYSHAFT_Z
+    ya, yb = P.MOTOR_PLATE_Y
+    leg, g, y0, xe = P.LAY_SPLIT_LEG, grow, ya - 10, x + 30
+    zone = box(xe - (LAY_CAP_X0 - g), 30, P.DECK_Z + 5 - z, LAY_CAP_X0 - g, y0, z)
+    zone += box((x - 7.0 + g) - (LAY_CAP_X0 - g), 30, leg, LAY_CAP_X0 - g, y0, z - leg)
+    zone += box(xe - (x + 7.0 - g), 30, leg, x + 7.0 - g, y0, z - leg)
+    zone += box(LAY_CAP_X0 + 0.1 - (LIP_CAP_X0 - g), P.SPUR_Y[1] + 2 - (yb - g), 10, LIP_CAP_X0 - g, yb - g, P.DECK_Z - 5.0)
+    return zone
+
+
+def motor_plate():
+    p = _motor_plate_raw()
+    top_load = getattr(P, "TOP_LOAD", False)
+    if top_load:
+        p -= _plate_cap_zone(P.BH_CLR)
     for (hx, hy) in P.motor_plate_floor_holes():                               # D53: captive square nuts
         p = AN.anchor(p, (hx, hy, ZF), (0, 0, 1), f"motor plate floor ({hx:.1f}, {hy:.0f})")
     for (hx, hy) in P.deck_holes():
-        if hy < 0 and 100 < hx < P.LAYSHAFT_X + 10:      # D34: + the rear deck-lap screw
+        if hy < 0 and 100 < hx < P.LAYSHAFT_X + 10 and not (top_load and hx > LAY_CAP_X0):   # D34: + the rear deck-lap screw
             p = AN.anchor(p, (hx, hy, P.DECK_Z), (0, 0, -1), f"motor plate deck ({hx:.1f}, {hy:.0f})")
     return p
 
 
-def lay_holder():
+def lay_cap_plate():
+    """D57: motor-plate layshaft cap (see _plate_cap_zone). Held by the rear deck-lap screw, whose captive nut is in it:
+    deck off, and it lifts away; the axle cartridge then lifts out of the plate's half-bore."""
+    c = _motor_plate_raw() & _plate_cap_zone()
+    for (hx, hy) in P.deck_holes():
+        if hy < 0 and LAY_CAP_X0 < hx < P.LAYSHAFT_X + 10:
+            c = AN.anchor(c, (hx, hy, P.DECK_Z), (0, 0, -1), f"motor plate deck ({hx:.1f}, {hy:.0f})")
+    return c
+
+
+def _lay_holder_raw():
     """D34: tapered, rounded XZ profile (22 mm at the floor, 12 mm at the deck) with radiused windows above and
     below the MR105 seat (was a 20 mm block)."""
     x, z = P.LAYSHAFT_X, P.LAYSHAFT_Z
@@ -441,10 +556,37 @@ def lay_holder():
     rn = (P.LAY_AXLE["nut_af"] + 0.2) / 2 / math.cos(math.pi / 6)
     nut = extrude(Polygon(*[(rn * math.cos(k * math.pi / 3), rn * math.sin(k * math.pi / 3)) for k in range(6)]), P.LAY_AXLE["nut_h"])
     h -= Pos(x, yb + 0.01, z) * Rot(90, 0, 0) * nut
+    return h
+
+
+def _holder_cap_zone(grow=0.0):
+    """D57: the lay holder above the axle centre, with legs 3 mm lower outboard of |dx| 5.5 that locate it in X."""
+    x, z = P.LAYSHAFT_X, P.LAYSHAFT_Z
+    ya, yb = P.LAY_HOLDER_Y
+    leg, g = P.LAY_SPLIT_LEG, grow
+    zone = box(30, yb - ya + 2, P.DECK_Z + 5 - z, x - 15, ya - 1, z)
+    zone += box(15 - 5.5 + g, yb - ya + 2, leg, x - 15, ya - 1, z - leg)
+    zone += box(15 - 5.5 + g, yb - ya + 2, leg, x + 5.5 - g, ya - 1, z - leg)
+    return zone
+
+
+def lay_holder():
+    h = _lay_holder_raw()
+    top_load = getattr(P, "TOP_LOAD", False)
+    if top_load:
+        h -= _holder_cap_zone(P.BH_CLR)
     for (hx, hy) in P.lay_holder_floor_holes():                                # D53: captive square nuts
         h = AN.anchor(h, (hx, hy, ZF), (0, 0, 1), f"lay holder floor ({hx:.1f}, {hy:.1f})")
-    h = AN.anchor(h, (x, sum(P.LAY_HOLDER_Y) / 2, P.DECK_Z), (0, 0, -1), "lay holder deck")
+    if not top_load:
+        h = AN.anchor(h, (P.LAYSHAFT_X, sum(P.LAY_HOLDER_Y) / 2, P.DECK_Z), (0, 0, -1), "lay holder deck")
     return h
+
+
+def lay_cap_holder():
+    """D57: lay-holder cap: the upper half of the axle hole and of the M4 nyloc's hex trap, held by the holder's deck screw
+    (its captive nut is in this cap). Deck off, it lifts away and the nyloc rises with the axle cartridge."""
+    c = _lay_holder_raw() & _holder_cap_zone()
+    return AN.anchor(c, (P.LAYSHAFT_X, sum(P.LAY_HOLDER_Y) / 2, P.DECK_Z), (0, 0, -1), "lay holder deck")
 
 
 def wheel_hex():
@@ -469,12 +611,14 @@ def place(shape, axle_x, side):
 def printed_installed():
     """Every printed running-gear part at its installed position (for the fit check/renders)."""
     out = {}
-    bh, la, ul, ur = bulkhead_half(), lower_arm(), upper_link(), upright_rear()
+    la, ul, ur = lower_arm(), upper_link(), upright_rear()
     fdx = front_diff_dx()
-    bhf = {1: bulkhead_half(fdx), -1: bulkhead_half(-fdx)}      # D46: local x flips on the 180-deg right-hand part
+    assert abs(fdx - P.FRONT_DIFF_DX) < 0.01, f"params.FRONT_DIFF_DX {P.FRONT_DIFF_DX} != front_diff_dx() {fdx}"
+    bhf = {1: bulkhead_half(fdx, True, 1), -1: bulkhead_half(-fdx, True, -1)}      # D46: local x flips on the 180-deg right-hand part
+    bhr = {1: bulkhead_half(0.0, False, 1), -1: bulkhead_half(0.0, False, -1)}     # D57d: rear L and R differ (asymmetric slot)
     for ax, tag in ((0.0, "f"), (P.WB, "r")):
         for sd, s in ((1, "L"), (-1, "R")):
-            out[f"bulkhead_{tag}{s}"] = place(bhf[sd] if tag == "f" else bh, ax, sd)
+            out[f"bulkhead_{tag}{s}"] = place(bhf[sd] if tag == "f" else bhr[sd], ax, sd)
             out[f"arm_{tag}{s}"] = place(la, ax, sd)
             out[f"link_{tag}{s}"] = place(ul, ax, sd)
             out[f"shock_{tag}{s}"] = shock_installed(ax, sd)
@@ -488,6 +632,13 @@ def printed_installed():
     out["drag_link"], out["servo_link"] = drag_link(), servo_link()
     out["tierod_L"], out["tierod_R"] = tie_rod(1), tie_rod(-1)
     out["motor_plate"], out["lay_holder"], out["lay_drum"] = motor_plate(), lay_holder(), lay_drum()
+    if getattr(P, "TOP_LOAD", False):                                          # D57 caps
+        capr = {1: bulkhead_cap(0.0, False, 1), -1: bulkhead_cap(0.0, False, -1)}
+        capf = {1: bulkhead_cap(fdx, True, 1), -1: bulkhead_cap(-fdx, True, -1)}
+        for ax, tag in ((0.0, "f"), (P.WB, "r")):
+            for sd, sx in ((1, "L"), (-1, "R")):
+                out[f"bulkhead_cap_{tag}{sx}"] = place(capf[sd] if tag == "f" else capr[sd], ax, sd)
+        out["lay_cap_plate"], out["lay_cap_holder"] = lay_cap_plate(), lay_cap_holder()
     return out
 
 

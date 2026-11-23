@@ -77,7 +77,16 @@ DECK_X = (-26.0, WB + 16.0)                # D34: full-length upper deck, front 
 # (their top inserts at y 27), waisted to 22 mm over the motor so the fan heat sink clears it
 DECK_HALF_W = [(-26, 21), (-16, 23), (-7, 33), (17, 33), (32, 26), (118, 26), (126, 22), (162, 22), (172, 27),
                (WB - 26, 27), (WB - 15, 33), (WB + 16, 33)]
-DECK_LAPS = [(-2.0, 14.0), (160.0, 176.0)]  # D34: 3 deck pieces; laps sit on screws that go on into inserts below
+DECK_LAPS = [(-2.0, 14.0), (160.0, 176.0)]
+# D57 top-loading drivetrain (owner 2026-11-23 "go ahead" on the D55.6 proposal). The bearing-cap screws are deck screws
+# at x +-BH_SCREW_DX (were +-10), so the deck grows: wider nose (also puts the D39b bellcrank pivots, y 26, back on the
+# deck: they were 2.5 mm past its edge), 2 mm longer tail, front lap 3 mm aft so the rear front-cap screw stays inside it.
+TOP_LOAD = True
+if TOP_LOAD:
+    DECK_X = (-26.0, WB + 18.0)
+    DECK_HALF_W = [(-26, 21), (-24, 31), (-7, 33), (17, 33), (32, 26), (118, 26), (126, 22), (162, 22), (172, 27),
+                   (WB - 26, 27), (WB - 15, 33), (WB + 18, 33)]
+    DECK_LAPS = [(1.0, 17.0), (160.0, 176.0)]  # D34: 3 deck pieces; laps sit on screws that go on into inserts below
 DECK_SPLIT = DECK_LAPS[0]  # kept for old readers
 
 # ---- option B running gear (Stage 3) ---------------------------------------------------
@@ -136,6 +145,56 @@ ARM_PIN_Y, ARM_PIN_Z = 38.0, 14.0      # DESIGN: lower arm inner hinge (M3 bolt 
 ARM_OUT_Y = 58.0                       # DESIGN: lower arm outer pin (to upright / C-hub)
 LINK_Z = 48.0                          # DESIGN: upper link OUTER pins (Y 56 rear / ball stud Y 62 front)
 LINK_IN = (34.0, 44.0)                 # DESIGN (D30): upper link INNER pin (Y, Z) on the cheek tab, 4 mm below the outer
+
+# D57 top-loading bulkheads: each cheek splits into a lower SADDLE (floor, arm lugs, posts either side of an open U-slot over
+# the diff bearing) and a bearing CAP (a plug that fills the slot down to the bearing + a bridge on the post tops carrying the
+# upper-link tab). The cap is held by the two deck screws, which go on through it into captive hex nuts in the posts, so
+# with the deck off the caps lift free and the diff lifts out. The belt has no slack (whole-tooth, no tensioner), so the diff
+# must leave on an arc about the layshaft: BH_SLOT_HW adds that arc's x drift over the lift that clears the posts.
+BH_POST_Z = 37.0          # DESIGN: post tops / cap underside (D57b: was 35; raised so the post-nut pocket's 1 mm wall ends at z 30.0, BH_STEP_Z).
+                          #   Deck + bridge = 3 + 15 mm: the screw is M3 x 30 with a 3 mm tower foot, M3 x 25 without
+BH_HW = 18.6              # DESIGN: saddle half width ABOVE BH_STEP_Z (was 15); the posts hold a washer + nut pocket outboard of the slot
+BH_LOW_HW = 15.0          # DESIGN (D57b): saddle half width BELOW BH_STEP_Z = the old bulkhead's, so the cut the scale shell shell's floor sheet
+                          #   already has round the chassis (1 mm clearance, top z 29.1) still fits: no body rebuild
+BH_STEP_Z = 30.0          # DESIGN (D57b): the saddle widens only above this (shell floor top 29.1 + 0.9)
+BH_BRIDGE_HW = 16.3       # DESIGN: cap bridge half width (clears the spring below the deck: rear shocks are 18.5 behind the axle)
+BH_CLR = 0.15             # DESIGN: slot-to-plug clearance each side
+BH_POST_PAD = 1.5         # DESIGN: posts stand 1.5 mm proud of the cheek's outer face (washer pocket wall)
+BH_SCREW_Y = 27.7         # DESIGN: cap screws 0.7 mm outboard of the old y 27, so the 9.3 mm washer-pocket wall stays out of the diff side
+def bh_drift(axle_x):
+    """x drift (mm, toward the layshaft) of the diff on its belt arc while its bearing rises clear of the posts."""
+    import math
+    R = math.dist((LAYSHAFT_X, LAYSHAFT_Z), (axle_x, DIFF_Z))
+    x0 = math.sqrt(R * R - (DIFF_Z - LAYSHAFT_Z) ** 2)
+    zc = DIFF_Z + (BH_POST_Z - (DIFF_Z - DIFF_BRG[1] / 2))
+    return x0 - math.sqrt(R * R - (zc - LAYSHAFT_Z) ** 2)
+BH_SLOT_HW = round(DIFF_BRG[1] / 2 + 0.1 + max(bh_drift(0.0), bh_drift(WB)), 2)   # 9.10 mm: widest slot side (rear, toward the layshaft)
+BH_SLOT_HW_F = round(DIFF_BRG[1] / 2 + 0.1 + bh_drift(0.0), 2)   # 8.45 mm (D57c): the front arc drifts only 0.85 mm
+BH_SLOT_SEAT = round(DIFF_BRG[1] / 2 + 0.1, 2)                     # 7.60 mm (D57d): the side AWAY from the layshaft needs no drift room
+FRONT_DIFF_DX = -0.36     # DESIGN copy of running_gear.front_diff_dx() (params cannot import it; running_gear asserts they agree)
+
+
+def bh_slot(axle_x):
+    """D57d: the U-slot's two edges (x from the axle, vehicle frame) at this axle. The diff only drifts TOWARD the layshaft on
+    its belt arc, so only that side gets the drift; the bearing sits FRONT_DIFF_DX off the axle at the front (D46)."""
+    b = FRONT_DIFF_DX if axle_x < WB / 2 else 0.0
+    d = bh_drift(axle_x)
+    if LAYSHAFT_X > axle_x:                                   # front: layshaft behind, drift aft (+x)
+        return round(b - BH_SLOT_SEAT, 2), round(b + BH_SLOT_SEAT + d, 2)
+    return round(b - BH_SLOT_SEAT - d, 2), round(b + BH_SLOT_SEAT, 2)
+
+
+# D57d: cap screws at x -13.90 (forward) and +12.90 (aft, the spring side) from each axle, both axles, so the shared shock tower's
+# foot still lands on the aft screw. Forward: rear slot -9.10 - 0.15 clearance - 1.0 wall - 3.65 washer pocket radius; aft: the
+# front slot's aft edge (-0.36 + 7.60 + 0.85 = 8.09) + 0.15 + 1.0 + 3.65 = 12.89, rounded up. At +13.90 (D57b) the aft screw's shank
+# came within 0.52 mm of the shock spring at full droop and its deck hole broke into the spring cut-out; at 12.90 the gap is ~1.0 mm.
+BH_SCREW_X = (round(-(BH_SLOT_HW + BH_CLR + 1.0 + 3.65), 2), 12.90)
+BH_SCREW_DX = -BH_SCREW_X[0]                                                     # 13.90 (kept for older callers: the forward screw)
+LAY_SPLIT_LEG = 3.0       # DESIGN: layshaft caps (plate + holder) split at the axle centre; the cap's legs reach 3 mm lower to locate it in X
+PIVOT_SPACER = (5.5, 4.0)  # D57: bellcrank pivot = M3 x 12 flat-head up through the deck (countersunk underneath), two stacked
+                           # 3 x 5.5 x 2.0 mm aluminium shims (RAD-AC-10008, on the BOM for the shock tops) and an M3 nyloc on top;
+                           # the crank turns on the shims (was a bare screw
+                           # in air: no post, no thread)
                                        #   pins: arms converge inboard -> 0.22-0.27 deg/mm camber gain in bump, roll centre
                                        #   4.4 / 5.3 mm (was parallel: 0 gain, RC on the road) (rnd/suspension/current_geometry.py)
 KINGPIN_Y = 62.0                       # DESIGN: front steering axis (M3 ball studs); wheels.KINGPIN_IN follows
@@ -182,8 +241,10 @@ def bulkhead_floor_holes(axle_x):
 def deck_holes():
     """D34: deck screws into the inserts below: both bulkhead pairs (towers share the outer ones), the steering
     pivots, the layshaft holder, and two on the motor plate (one clamps the rear lap)."""
-    front = [(dx, s * 27.0) for s in (1, -1) for dx in (-10, 10)]
-    rear = [(WB + dx, s * 27.0) for s in (1, -1) for dx in (-10, 10)]
+    bxs = BH_SCREW_X if TOP_LOAD else (-10, 10)                                # D57d: the bearing-cap screws (forward, aft)
+    by = BH_SCREW_Y if TOP_LOAD else 27.0
+    front = [(dx, s * by) for s in (1, -1) for dx in bxs]
+    rear = [(WB + dx, s * by) for s in (1, -1) for dx in bxs]
     steer = [(STEER_PIVOT[0], s * STEER_PIVOT[1]) for s in (1, -1)]
     lay = [(LAYSHAFT_X, sum(LAY_HOLDER_Y) / 2), (MOTOR_X - 3, MOTOR_PLATE_Y[1]), (LAYSHAFT_X - 3, MOTOR_PLATE_Y[1] - 4.1)]   # D53: lap screw 4.1 mm outboard, its nut clear of the spur
     return front + rear + steer + lay

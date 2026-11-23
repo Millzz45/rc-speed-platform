@@ -12,7 +12,7 @@ means the page blocked reading and the price is from a search listing. Prices mo
 
 ## 50 mph kit (no electronics)
 
-Modelled: 55.6<!--D:50k_mph=55.6--> mph mid case, 55.4<!--D:50k_mph_hi=55.4--> mph high-drag, 48<!--D:50k_runway=48--> m of runway to 90 % of top speed, 17.2<!--D:50k_amps=17.2--> A at top speed [estimate: speed model + CFD drag band]. **Total 433.13<!--D:50k_usd=433.13--> USD** (real parts 175.01<!--D:50k_real=175.01--> USD; 7.79<!--D:50k_usd_mph=7.79--> USD per mph). File: `bom/bom_50k.csv`.
+Modelled: 55.6<!--D:50k_mph=55.6--> mph mid case, 55.4<!--D:50k_mph_hi=55.4--> mph high-drag, 48<!--D:50k_runway=48--> m of runway to 90 % of top speed, 17.3<!--D:50k_amps=17.3--> A at top speed [estimate: speed model + CFD drag band]. **Total 433.13<!--D:50k_usd=433.13--> USD** (real parts 175.01<!--D:50k_real=175.01--> USD; 7.79<!--D:50k_usd_mph=7.79--> USD per mph). File: `bom/bom_50k.csv`.
 
 | Category | Part | Qty | Line USD | Buy |
 |---|---|---|---|---|
@@ -29,6 +29,7 @@ Modelled: 55.6<!--D:50k_mph=55.6--> mph mid case, 55.4<!--D:50k_mph_hi=55.4--> m
 | hardware | M4 nyloc nuts, flanged, 4-pack (Jazrider M4-LNF-R; wheel nuts) | 2.0 | 3.8 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=M4-LNF-R) |
 | hardware | 5 mm shoulder screw, 30 mm shoulder, M4 thread (McMaster 92981A055) as the fixed layshaft axle | 1.0 | 3.9 | [link](https://www.mcmaster.com/92981A055/) |
 | hardware | M3 hex nuts DIN 934, class 8 zinc steel, 100-pack (Albany County Fasteners 5602-022-002) | 2 | 6.0 | [link](https://www.albanycountyfasteners.com/metric-finished-hex-nuts-zinc-plated-class-8-steel-m3-x-05-5602-022-002/) |
+| hardware | M3 flat washers 3.2 x 7.0 x 0.5 mm (DIN 125 size), A2 stainless, 100-pack (Albany County Fasteners 5620022) | 1.0 | 2.0 | [link](https://www.albanycountyfasteners.com/Flat-Washers-A2-Stainless-Steel-p/5620000.htm) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 6, steel, 10-pack (Arrowmax AM-13CS3006): 16 used | 2.0 | 6.38 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3006) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 10, steel, 10-pack (Arrowmax AM-13CS3010): 16 used | 2.0 | 6.38 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3010) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 12, steel, 10-pack (Arrowmax AM-13CS3012): 4 used | 1.0 | 3.19 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3012) |
@@ -38,7 +39,6 @@ Modelled: 55.6<!--D:50k_mph=55.6--> mph mid case, 55.4<!--D:50k_mph_hi=55.4--> m
 | hardware | M3 aluminium spacer shims 3 x 5.5 x 2.0 mm, 10 pcs (RAD-AC-10008): shock top-eye stack | 1.0 | 7.0 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=RAD-AC-10008) |
 | hardware | M3 aluminium spacer shims 3 x 5.5 x 1.0 mm, 10 pcs (RAD-AC-10006): shock top-eye stack | 1.0 | 7.0 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=RAD-AC-10006) |
 | hardware | M4 flat washers DIN 125, 4.3 x 8.8 x 0.8 mm, 304 stainless, 50-pack (Protosupplies): 1 used, layshaft axle | 1.0 | 1.25 | [link](https://protosupplies.com/product/m4-flat-washer-ss-50-pack/) |
-| hardware | M3 flat washers 3.2 x 7.0 x 0.5 mm (DIN 125 size), A2 stainless, 100-pack (Albany County Fasteners 5620022) | 1 | 2.0 | [link](https://www.albanycountyfasteners.com/Flat-Washers-A2-Stainless-Steel-p/5620000.htm) |
 | hardware | M3 x 12 socket-cap screws, 12.9 black-oxide steel, 100-pack (Zoro Select M07000.030.0012): 34 used, GT-2 body seams + carrier columns | 1 | 6.65 | [link](https://www.zoro.com/zoro-select-m3-050-socket-head-cap-screw-black-oxide-steel-12-mm-length-100-pk-m070000300012/i/G2341586) |
 | real: drivetrain | 48P pinion 33T, 7075 hard (Arrowmax AM-348033) | 1.0 | 5.61 | [link](https://www.rcjaz.com/arrowmax-am348033-pinion-gear-48p-33t-7075-hard-p-90082701.html) |
 | real: drivetrain | Thread-locker gel for the pinion grub screw (Tamiya 54032) | 1.0 | 6.5 | [link](https://www.rcjaz.com/tamiya-54032-anaerobic-gel-thread-lock-op1032-for-rc-cars-p-90000246.html) |
@@ -57,7 +57,7 @@ Modelled: 55.6<!--D:50k_mph=55.6--> mph mid case, 55.4<!--D:50k_mph_hi=55.4--> m
 | shipping | Shipping allowance (rcjaz, AliExpress, Zeee, eBay, McMaster-Carr, BuddyRC, MW Components) | 1.0 | 54.11 | - |
 ## 50 mph complete
 
-Modelled: 55.6<!--D:50c_mph=55.6--> mph mid case, 55.4<!--D:50c_mph_hi=55.4--> mph high-drag, 48<!--D:50c_runway=48--> m of runway to 90 % of top speed, 17.2<!--D:50c_amps=17.2--> A at top speed [estimate: speed model + CFD drag band]. **Total 612.98<!--D:50c_usd=612.98--> USD** (real parts 344.36<!--D:50c_real=344.36--> USD; 11.02<!--D:50c_usd_mph=11.02--> USD per mph). File: `bom/bom_50c.csv`.
+Modelled: 55.6<!--D:50c_mph=55.6--> mph mid case, 55.4<!--D:50c_mph_hi=55.4--> mph high-drag, 48<!--D:50c_runway=48--> m of runway to 90 % of top speed, 17.3<!--D:50c_amps=17.3--> A at top speed [estimate: speed model + CFD drag band]. **Total 612.98<!--D:50c_usd=612.98--> USD** (real parts 344.36<!--D:50c_real=344.36--> USD; 11.02<!--D:50c_usd_mph=11.02--> USD per mph). File: `bom/bom_50c.csv`.
 
 | Category | Part | Qty | Line USD | Buy |
 |---|---|---|---|---|
@@ -75,6 +75,7 @@ Modelled: 55.6<!--D:50c_mph=55.6--> mph mid case, 55.4<!--D:50c_mph_hi=55.4--> m
 | hardware | M4 nyloc nuts, flanged, 4-pack (Jazrider M4-LNF-R; wheel nuts) | 2.0 | 3.8 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=M4-LNF-R) |
 | hardware | 5 mm shoulder screw, 30 mm shoulder, M4 thread (McMaster 92981A055) as the fixed layshaft axle | 1.0 | 3.9 | [link](https://www.mcmaster.com/92981A055/) |
 | hardware | M3 hex nuts DIN 934, class 8 zinc steel, 100-pack (Albany County Fasteners 5602-022-002) | 2 | 6.0 | [link](https://www.albanycountyfasteners.com/metric-finished-hex-nuts-zinc-plated-class-8-steel-m3-x-05-5602-022-002/) |
+| hardware | M3 flat washers 3.2 x 7.0 x 0.5 mm (DIN 125 size), A2 stainless, 100-pack (Albany County Fasteners 5620022) | 1.0 | 2.0 | [link](https://www.albanycountyfasteners.com/Flat-Washers-A2-Stainless-Steel-p/5620000.htm) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 6, steel, 10-pack (Arrowmax AM-13CS3006): 16 used | 2.0 | 6.38 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3006) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 10, steel, 10-pack (Arrowmax AM-13CS3010): 16 used | 2.0 | 6.38 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3010) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 12, steel, 10-pack (Arrowmax AM-13CS3012): 4 used | 1.0 | 3.19 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3012) |
@@ -84,7 +85,6 @@ Modelled: 55.6<!--D:50c_mph=55.6--> mph mid case, 55.4<!--D:50c_mph_hi=55.4--> m
 | hardware | M3 aluminium spacer shims 3 x 5.5 x 2.0 mm, 10 pcs (RAD-AC-10008): shock top-eye stack | 1.0 | 7.0 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=RAD-AC-10008) |
 | hardware | M3 aluminium spacer shims 3 x 5.5 x 1.0 mm, 10 pcs (RAD-AC-10006): shock top-eye stack | 1.0 | 7.0 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=RAD-AC-10006) |
 | hardware | M4 flat washers DIN 125, 4.3 x 8.8 x 0.8 mm, 304 stainless, 50-pack (Protosupplies): 1 used, layshaft axle | 1.0 | 1.25 | [link](https://protosupplies.com/product/m4-flat-washer-ss-50-pack/) |
-| hardware | M3 flat washers 3.2 x 7.0 x 0.5 mm (DIN 125 size), A2 stainless, 100-pack (Albany County Fasteners 5620022) | 1 | 2.0 | [link](https://www.albanycountyfasteners.com/Flat-Washers-A2-Stainless-Steel-p/5620000.htm) |
 | hardware | M3 x 12 socket-cap screws, 12.9 black-oxide steel, 100-pack (Zoro Select M07000.030.0012): 34 used, GT-2 body seams + carrier columns | 1 | 6.65 | [link](https://www.zoro.com/zoro-select-m3-050-socket-head-cap-screw-black-oxide-steel-12-mm-length-100-pk-m070000300012/i/G2341586) |
 | real: drivetrain | 48P pinion 33T, 7075 hard (Arrowmax AM-348033) | 1.0 | 5.61 | [link](https://www.rcjaz.com/arrowmax-am348033-pinion-gear-48p-33t-7075-hard-p-90082701.html) |
 | real: drivetrain | Thread-locker gel for the pinion grub screw (Tamiya 54032) | 1.0 | 6.5 | [link](https://www.rcjaz.com/tamiya-54032-anaerobic-gel-thread-lock-op1032-for-rc-cars-p-90000246.html) |
@@ -128,6 +128,7 @@ Modelled: 81.5<!--D:80k_mph=81.5--> mph mid case, 81.1<!--D:80k_mph_hi=81.1--> m
 | hardware | M4 nyloc nuts, flanged, 4-pack (Jazrider M4-LNF-R; wheel nuts) | 2.0 | 3.8 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=M4-LNF-R) |
 | hardware | 5 mm shoulder screw, 30 mm shoulder, M4 thread (McMaster 92981A055) as the fixed layshaft axle | 1.0 | 3.9 | [link](https://www.mcmaster.com/92981A055/) |
 | hardware | M3 hex nuts DIN 934, class 8 zinc steel, 100-pack (Albany County Fasteners 5602-022-002) | 2 | 6.0 | [link](https://www.albanycountyfasteners.com/metric-finished-hex-nuts-zinc-plated-class-8-steel-m3-x-05-5602-022-002/) |
+| hardware | M3 flat washers 3.2 x 7.0 x 0.5 mm (DIN 125 size), A2 stainless, 100-pack (Albany County Fasteners 5620022) | 1.0 | 2.0 | [link](https://www.albanycountyfasteners.com/Flat-Washers-A2-Stainless-Steel-p/5620000.htm) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 6, steel, 10-pack (Arrowmax AM-13CS3006): 16 used | 2.0 | 6.38 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3006) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 10, steel, 10-pack (Arrowmax AM-13CS3010): 16 used | 2.0 | 6.38 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3010) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 12, steel, 10-pack (Arrowmax AM-13CS3012): 4 used | 1.0 | 3.19 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3012) |
@@ -137,7 +138,6 @@ Modelled: 81.5<!--D:80k_mph=81.5--> mph mid case, 81.1<!--D:80k_mph_hi=81.1--> m
 | hardware | M3 aluminium spacer shims 3 x 5.5 x 2.0 mm, 10 pcs (RAD-AC-10008): shock top-eye stack | 1.0 | 7.0 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=RAD-AC-10008) |
 | hardware | M3 aluminium spacer shims 3 x 5.5 x 1.0 mm, 10 pcs (RAD-AC-10006): shock top-eye stack | 1.0 | 7.0 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=RAD-AC-10006) |
 | hardware | M4 flat washers DIN 125, 4.3 x 8.8 x 0.8 mm, 304 stainless, 50-pack (Protosupplies): 1 used, layshaft axle | 1.0 | 1.25 | [link](https://protosupplies.com/product/m4-flat-washer-ss-50-pack/) |
-| hardware | M3 flat washers 3.2 x 7.0 x 0.5 mm (DIN 125 size), A2 stainless, 100-pack (Albany County Fasteners 5620022) | 1 | 2.0 | [link](https://www.albanycountyfasteners.com/Flat-Washers-A2-Stainless-Steel-p/5620000.htm) |
 | hardware | M3 x 12 socket-cap screws, 12.9 black-oxide steel, 100-pack (Zoro Select M07000.030.0012): 34 used, GT-2 body seams + carrier columns | 1 | 6.65 | [link](https://www.zoro.com/zoro-select-m3-050-socket-head-cap-screw-black-oxide-steel-12-mm-length-100-pk-m070000300012/i/G2341586) |
 | real: drivetrain | 48P pinion 33T, 7075 hard (Arrowmax AM-348033) | 1.0 | 5.61 | [link](https://www.rcjaz.com/arrowmax-am348033-pinion-gear-48p-33t-7075-hard-p-90082701.html) |
 | real: drivetrain | Thread-locker gel for the pinion grub screw (Tamiya 54032) | 1.0 | 6.5 | [link](https://www.rcjaz.com/tamiya-54032-anaerobic-gel-thread-lock-op1032-for-rc-cars-p-90000246.html) |
@@ -174,6 +174,7 @@ Modelled: 81.5<!--D:80c_mph=81.5--> mph mid case, 81.1<!--D:80c_mph_hi=81.1--> m
 | hardware | M4 nyloc nuts, flanged, 4-pack (Jazrider M4-LNF-R; wheel nuts) | 2.0 | 3.8 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=M4-LNF-R) |
 | hardware | 5 mm shoulder screw, 30 mm shoulder, M4 thread (McMaster 92981A055) as the fixed layshaft axle | 1.0 | 3.9 | [link](https://www.mcmaster.com/92981A055/) |
 | hardware | M3 hex nuts DIN 934, class 8 zinc steel, 100-pack (Albany County Fasteners 5602-022-002) | 2 | 6.0 | [link](https://www.albanycountyfasteners.com/metric-finished-hex-nuts-zinc-plated-class-8-steel-m3-x-05-5602-022-002/) |
+| hardware | M3 flat washers 3.2 x 7.0 x 0.5 mm (DIN 125 size), A2 stainless, 100-pack (Albany County Fasteners 5620022) | 1.0 | 2.0 | [link](https://www.albanycountyfasteners.com/Flat-Washers-A2-Stainless-Steel-p/5620000.htm) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 6, steel, 10-pack (Arrowmax AM-13CS3006): 16 used | 2.0 | 6.38 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3006) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 10, steel, 10-pack (Arrowmax AM-13CS3010): 16 used | 2.0 | 6.38 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3010) |
 | hardware | M3 flat-head (countersunk) hex socket screws M3 x 12, steel, 10-pack (Arrowmax AM-13CS3012): 4 used | 1.0 | 3.19 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=AM-13CS3012) |
@@ -183,7 +184,6 @@ Modelled: 81.5<!--D:80c_mph=81.5--> mph mid case, 81.1<!--D:80c_mph_hi=81.1--> m
 | hardware | M3 aluminium spacer shims 3 x 5.5 x 2.0 mm, 10 pcs (RAD-AC-10008): shock top-eye stack | 1.0 | 7.0 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=RAD-AC-10008) |
 | hardware | M3 aluminium spacer shims 3 x 5.5 x 1.0 mm, 10 pcs (RAD-AC-10006): shock top-eye stack | 1.0 | 7.0 | [link](https://www.rcjaz.com/advanced_search_result.php?keywords=RAD-AC-10006) |
 | hardware | M4 flat washers DIN 125, 4.3 x 8.8 x 0.8 mm, 304 stainless, 50-pack (Protosupplies): 1 used, layshaft axle | 1.0 | 1.25 | [link](https://protosupplies.com/product/m4-flat-washer-ss-50-pack/) |
-| hardware | M3 flat washers 3.2 x 7.0 x 0.5 mm (DIN 125 size), A2 stainless, 100-pack (Albany County Fasteners 5620022) | 1 | 2.0 | [link](https://www.albanycountyfasteners.com/Flat-Washers-A2-Stainless-Steel-p/5620000.htm) |
 | hardware | M3 x 12 socket-cap screws, 12.9 black-oxide steel, 100-pack (Zoro Select M07000.030.0012): 34 used, GT-2 body seams + carrier columns | 1 | 6.65 | [link](https://www.zoro.com/zoro-select-m3-050-socket-head-cap-screw-black-oxide-steel-12-mm-length-100-pk-m070000300012/i/G2341586) |
 | real: drivetrain | 48P pinion 33T, 7075 hard (Arrowmax AM-348033) | 1.0 | 5.61 | [link](https://www.rcjaz.com/arrowmax-am348033-pinion-gear-48p-33t-7075-hard-p-90082701.html) |
 | real: drivetrain | Thread-locker gel for the pinion grub screw (Tamiya 54032) | 1.0 | 6.5 | [link](https://www.rcjaz.com/tamiya-54032-anaerobic-gel-thread-lock-op1032-for-rc-cars-p-90000246.html) |

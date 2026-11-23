@@ -74,9 +74,19 @@ UP_Y = Rot(90, 0, 0)        # Y axis -> Z: bearing seats print as round vertical
 ON_SIDE = Rot(0, 90, 0)     # X axis -> Z: X-direction pin holes print round
 # Stage 3 running gear (option B) + links + coupons
 RUNNING = {
-    "bulkhead_half": (RG.bulkhead_half, P.PETG_CF, 2, UP_Y, "none", 0.16, "5 walls / 40%", "cheek inner face down (bearing seat round); rear pair (same part both sides)"),
-    "bulkhead_fL":   (lambda: RG.bulkhead_half(RG.front_diff_dx()), P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 40%", "D46 front LEFT: diff seat offset for a whole-tooth front belt (mark L)"),
-    "bulkhead_fR":   (lambda: RG.bulkhead_half(-RG.front_diff_dx()), P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 40%", "D46 front RIGHT: mirror offset (mark R)"),
+    **({"bulkhead_rL": (lambda: RG.bulkhead_half(0.0, False, 1), P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 40%", "D57d rear LEFT saddle (mark L): cheek inner face down (bearing seat round)"),
+        "bulkhead_rR": (lambda: RG.bulkhead_half(0.0, False, -1), P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 40%", "D57d rear RIGHT saddle (mark R): mirror of rL")}
+       if getattr(P, "TOP_LOAD", False) else
+       {"bulkhead_half": (RG.bulkhead_half, P.PETG_CF, 2, UP_Y, "none", 0.16, "5 walls / 40%", "cheek inner face down (bearing seat round); rear pair (same part both sides)")}),
+    "bulkhead_fL":   (lambda: RG.bulkhead_half(RG.front_diff_dx(), True, 1), P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 40%", "D46 front LEFT: diff seat offset for a whole-tooth front belt (mark L)"),
+    "bulkhead_fR":   (lambda: RG.bulkhead_half(-RG.front_diff_dx(), True, -1), P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 40%", "D46 front RIGHT: mirror offset (mark R)"),
+    **({"bulkhead_cap_rL": (lambda: RG.bulkhead_cap(0.0, False, 1), P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 40%", "D57d rear LEFT bearing cap (mark L): inner face down; held by the 2 deck screws"),
+        "bulkhead_cap_rR": (lambda: RG.bulkhead_cap(0.0, False, -1), P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 40%", "D57d rear RIGHT bearing cap (mark R)"),
+        "bulkhead_cap_fL": (lambda: RG.bulkhead_cap(RG.front_diff_dx(), True, 1), P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 40%", "D57 front LEFT bearing cap (mark L)"),
+        "bulkhead_cap_fR": (lambda: RG.bulkhead_cap(-RG.front_diff_dx(), True, -1), P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 40%", "D57 front RIGHT bearing cap (mark R)"),
+        "lay_cap_plate":   (RG.lay_cap_plate, P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 50%", "D57 motor-plate layshaft cap; captive nut for the deck-lap screw"),
+        "lay_cap_holder":  (RG.lay_cap_holder, P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 50%", "D57 lay-holder cap; upper half of the nyloc trap"),
+        } if getattr(P, "TOP_LOAD", False) else {}),
     "lower_arm":     (RG.lower_arm, P.PETG_CF, 4, ON_SIDE, "none", 0.16, "5 walls / 50%", "on its side: pin holes vertical; same part at all 4 corners"),
     "upper_link":    (RG.upper_link, P.PETG_CF, 4, ON_SIDE, "none", 0.16, "100%", "on its side; same part at all 4 corners"),
     "upright_rear":  (RG.upright_rear, P.PETG_CF, 2, UP_Y, "none", 0.16, "5 walls / 50%", "bearing axis vertical"),
@@ -95,7 +105,7 @@ RUNNING = {
     "spare_servo_link_m2": (lambda: RG.link_flat(RG.LINKS["servo_link"] - 2.0), P.PETG_CF, 1, FLAT, "none", 0.16, "100%", "D53 QA: servo_link 2 mm shorter (the horn tip is [unverified]); keep the one that gives equal lock, not on the car's mass"),
     "spare_servo_link_p2": (lambda: RG.link_flat(RG.LINKS["servo_link"] + 2.0), P.PETG_CF, 1, FLAT, "none", 0.16, "100%", "D53 QA: servo_link 2 mm longer (the horn tip is [unverified]); keep the one that gives equal lock, not on the car's mass"),
     "motor_plate":   (RG.motor_plate, P.PETG_CF, 1, UP_Y, "tree, under the plate (bosses on the bed side)", 0.16, "5 walls / 50%", "touches the motor only on 2 standoff bosses"),
-    "lay_holder":    (RG.lay_holder, P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 50%", "nut trap up; clamps the fixed layshaft axle (D50)"),
+    "lay_holder":    (RG.lay_holder, P.PETG_CF, 1, UP_Y, "none", 0.16, "5 walls / 50%", "nut trap up; clamps the fixed layshaft axle (D50); D57: lower half"),
     "lay_spacer_head": (RG.lay_spacer_head, P.PETG_CF, 1, UP_Y, "none", 0.16, "100%", "ring between the axle screw head and the motor plate (D50)"),
     "lay_spacer_in": (RG.lay_spacer_in, P.PETG_CF, 1, UP_Y, "none", 0.12, "100%", "thin ring on the axle inside the spur (D50)"),
     "lay_drum":      (RG.lay_drum, P.PETG_CF, 1, UP_Y, "none", 0.12, "100%", "spur flange down; wear part"),

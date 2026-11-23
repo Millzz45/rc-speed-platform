@@ -23,7 +23,7 @@ JOINTS = [("bulkhead", "arm"), ("bulkhead", "link"), ("bulkhead", "e_diff"), ("b
           ("shock", "tower"), ("knuckle", "tierod"), ("knuckle", "e_cvd"), ("upright", "e_cvd"),
           ("crank", "drag_link"), ("crank", "tierod"), ("crank", "servo_link"), ("servo_link", "e_servo"),
           ("lay_drum", "e_spur"), ("lay_drum", "e_belt"), ("lay_drum", "e_layshaft"),
-          ("motor_plate", "e_motor"), ("e_motor", "e_heatsink"), ("motor_plate", "e_layshaft"), ("lay_holder", "e_layshaft"),
+          ("motor_plate", "e_motor"), ("e_motor", "e_heatsink"), ("motor_plate", "e_layshaft"), ("lay_holder", "e_layshaft"), ("lay_cap", "e_layshaft"),
           ("tower", "deck"), ("crank", "deck"),
           ("knuckle", "tire_sweep")]          # the knuckle steers WITH the tire
 

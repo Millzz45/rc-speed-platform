@@ -13,7 +13,7 @@ below. Every part fits a 176 × 176 mm bed.
 - **PETG-CF** (PETG with 5-15 % chopped carbon fibre) for every structural part, **PETG** for the small rings and tech
   tray, **TPU 95A** for the bumper and pads, **PLA** (or PLA-CF) for the gauges. Use a hardened-steel nozzle for CF.
 - **Dry PETG and PETG-CF first** (4-6 h at 65 °C): wet PETG strings and is weaker across layers.
-- Car parts, modelled volume: PETG 0 cm³, PETG-CF 405 cm³, TPU 95A 29 cm³; about 45.3<!--D:print_hours_car=45.3--> h of printing [estimate from volume].
+- Car parts, modelled volume: PETG 0 cm³, PETG-CF 408 cm³, TPU 95A 29 cm³; about 46.5<!--D:print_hours_car=46.5--> h of printing [estimate from volume].
 
 ## Print order
 
@@ -40,9 +40,16 @@ below. Every part fits a 176 × 176 mm bed.
 | `rear_spacer.stl` | 1 | PETG-CF | 0.2 | 4 walls / 100% | none | car | D53: flat as fitted (a 3 mm plate, its 4 floor-screw holes vertical): nothing overhangs; the 4 floor screws pass through it into the rear mount |
 | `battery_pad.stl` | 2 | TPU 95A | 0.2 | 100% | none | car |  |
 | `esc_pad.stl` | 2 | TPU 95A | 0.2 | 100% | none | car |  |
-| `bulkhead_half.stl` | 2 | PETG-CF | 0.16 | 5 walls / 40% | none | car | cheek inner face down (bearing seat round); rear pair (same part both sides) |
+| `bulkhead_rL.stl` | 1 | PETG-CF | 0.16 | 5 walls / 40% | none | car | D57d rear LEFT saddle (mark L): cheek inner face down (bearing seat round) |
+| `bulkhead_rR.stl` | 1 | PETG-CF | 0.16 | 5 walls / 40% | none | car | D57d rear RIGHT saddle (mark R): mirror of rL |
 | `bulkhead_fL.stl` | 1 | PETG-CF | 0.16 | 5 walls / 40% | none | car | D46 front LEFT: diff seat offset for a whole-tooth front belt (mark L) |
 | `bulkhead_fR.stl` | 1 | PETG-CF | 0.16 | 5 walls / 40% | none | car | D46 front RIGHT: mirror offset (mark R) |
+| `bulkhead_cap_rL.stl` | 1 | PETG-CF | 0.16 | 5 walls / 40% | none | car | D57d rear LEFT bearing cap (mark L): inner face down; held by the 2 deck screws |
+| `bulkhead_cap_rR.stl` | 1 | PETG-CF | 0.16 | 5 walls / 40% | none | car | D57d rear RIGHT bearing cap (mark R) |
+| `bulkhead_cap_fL.stl` | 1 | PETG-CF | 0.16 | 5 walls / 40% | none | car | D57 front LEFT bearing cap (mark L) |
+| `bulkhead_cap_fR.stl` | 1 | PETG-CF | 0.16 | 5 walls / 40% | none | car | D57 front RIGHT bearing cap (mark R) |
+| `lay_cap_plate.stl` | 1 | PETG-CF | 0.16 | 5 walls / 50% | none | car | D57 motor-plate layshaft cap; captive nut for the deck-lap screw |
+| `lay_cap_holder.stl` | 1 | PETG-CF | 0.16 | 5 walls / 50% | none | car | D57 lay-holder cap; upper half of the nyloc trap |
 | `lower_arm.stl` | 4 | PETG-CF | 0.16 | 5 walls / 50% | none | car | on its side: pin holes vertical; same part at all 4 corners |
 | `upper_link.stl` | 4 | PETG-CF | 0.16 | 100% | none | car | on its side; same part at all 4 corners |
 | `upright_rear.stl` | 2 | PETG-CF | 0.16 | 5 walls / 50% | none | car | bearing axis vertical |
@@ -61,7 +68,7 @@ below. Every part fits a 176 × 176 mm bed.
 | `spare_servo_link_m2.stl` | 1 | PETG-CF | 0.16 | 100% | none | car | D53 QA: servo_link 2 mm shorter (the horn tip is [unverified]); keep the one that gives equal lock, not on the car's mass |
 | `spare_servo_link_p2.stl` | 1 | PETG-CF | 0.16 | 100% | none | car | D53 QA: servo_link 2 mm longer (the horn tip is [unverified]); keep the one that gives equal lock, not on the car's mass |
 | `motor_plate.stl` | 1 | PETG-CF | 0.16 | 5 walls / 50% | tree, under the plate (bosses on the bed side) | car | touches the motor only on 2 standoff bosses |
-| `lay_holder.stl` | 1 | PETG-CF | 0.16 | 5 walls / 50% | none | car | nut trap up; clamps the fixed layshaft axle (D50) |
+| `lay_holder.stl` | 1 | PETG-CF | 0.16 | 5 walls / 50% | none | car | nut trap up; clamps the fixed layshaft axle (D50); D57: lower half |
 | `lay_spacer_head.stl` | 1 | PETG-CF | 0.16 | 100% | none | car | ring between the axle screw head and the motor plate (D50) |
 | `lay_spacer_in.stl` | 1 | PETG-CF | 0.12 | 100% | none | car | thin ring on the axle inside the spur (D50) |
 | `lay_drum.stl` | 1 | PETG-CF | 0.12 | 100% | none | car | spur flange down; wear part |
@@ -119,9 +126,16 @@ About 341.5<!--D:gt2_g=341.5--> g of filament [estimate from volume].
 | ☐ | `rear_spacer` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `battery_pad` | 2 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `esc_pad` | 2 | nut slots clear, screw holes round, no stringing in the hex pockets |
-| ☐ | `bulkhead_half` | 2 | nut slots clear, screw holes round, no stringing in the hex pockets |
+| ☐ | `bulkhead_rL` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
+| ☐ | `bulkhead_rR` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `bulkhead_fL` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `bulkhead_fR` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
+| ☐ | `bulkhead_cap_rL` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
+| ☐ | `bulkhead_cap_rR` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
+| ☐ | `bulkhead_cap_fL` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
+| ☐ | `bulkhead_cap_fR` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
+| ☐ | `lay_cap_plate` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
+| ☐ | `lay_cap_holder` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `lower_arm` | 4 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `upper_link` | 4 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `upright_rear` | 2 | nut slots clear, screw holes round, no stringing in the hex pockets |

@@ -6,7 +6,7 @@ Run these in order. Do not go faster until the previous line passes.
 
 | # | Test | Pass |
 |---|---|---|
-| 1 | Weigh the car ready to run (kitchen scale) | 80 mph: about 2046<!--D:mass_g=2046--> g [modelled]; 50 mph about 1871 g |
+| 1 | Weigh the car ready to run (kitchen scale) | 80 mph: about 2051<!--D:mass_g=2051--> g [modelled]; 50 mph about 1876 g |
 | 2 | Wheels up, 25 % throttle for 2 min, touch the motor plate | warm, not hot; no belt skip |
 | 3 | Leaf blower at the nose, car on 2 kitchen scales | each axle loses ≤ 25 % of its weight |
 | 4 | Runway at a 50 % throttle end-point, phone GPS app | straight, no wobble |

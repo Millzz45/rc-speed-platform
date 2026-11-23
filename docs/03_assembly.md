@@ -26,13 +26,13 @@ Buy one 100-pack of each.
 | Screw | Count |
 |---|---|
 | M3 x 10 flat-head (ISO 10642, countersunk in the floor) | 4 |
-| M3 x 10 socket cap | 13 |
+| M3 x 10 socket cap | 9 |
 | M3 x 12 flat-head (ISO 10642, countersunk in the floor) | 10 |
-| M3 x 12 socket cap (tower feet: deck 3 + foot 3 mm) | 4 |
 | M3 x 14 flat-head (ISO 10642, countersunk in the floor) | 6 |
 | M3 x 14 socket cap | 2 |
 | M3 x 16 flat-head (ISO 10642, countersunk in the floor) | 8 |
-| M3 x 25 socket cap | 2 |
+| M3 x 25 socket cap | 6 |
+| M3 x 30 socket cap (tower feet: deck 3 + foot 3 mm) | 4 |
 | M3 x 6 flat-head (ISO 10642), tub laps, up into a hex nut on top | 16 |
 | M3 x 30 socket cap + M3 nyloc: lower-arm hinges | 4 |
 | M3 x 16 socket cap: upper-link pins | 4 |
@@ -47,7 +47,7 @@ Each nut slides into a slot from the side of the part **before** the part is fit
 slide the washer in first (it goes on the screw-head side of the nut), then the nut. Push with tweezers until you can look
 down the screw hole and see the nut's thread centred. The hex slot has two flats along it, so the nut cannot turn. If a
 slot faces down when the part is in place, thread a screw two turns into the nut first, fit the part, then swap in the
-real screw. 36<!--D:pad_sites=36--> sites sit in small grown pads of plastic (they look like a bump on the part): they are
+real screw. 34<!--D:pad_sites=34--> sites sit in small grown pads of plastic (they look like a bump on the part): they are
 normal nut slots.
 
 ## 1. Floor
@@ -61,18 +61,19 @@ normal nut slots.
 
 ## 2. Bulkheads and diffs
 
-`bulkhead_half` (12 hex nuts in each of the 2 pieces (12 on a washer): 4 × M3 x 12 flat-head (ISO 10642, countersunk in the floor), 4 × M3 x 16 flat-head (ISO 10642, countersunk in the floor), 4 × M3 x 10 socket cap), `bulkhead_fL` (6 hex nuts (6 on a washer): 2 × M3 x 12 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 16 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 10 socket cap), `bulkhead_fR` (6 hex nuts (6 on a washer): 2 × M3 x 12 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 16 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 10 socket cap).
-`fL` goes on the left, `fR` on the right. Press a 6700 bearing into each seat by thumb, drop the diff between two halves,
-check it spins, then screw the halves to the floor from below.
+`bulkhead_rL` (6 hex nuts (6 on a washer): 2 × M3 x 12 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 16 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 25 socket cap), `bulkhead_rR` (6 hex nuts (6 on a washer): 2 × M3 x 12 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 16 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 25 socket cap), `bulkhead_fL` (6 hex nuts (6 on a washer): 2 × M3 x 12 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 16 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 25 socket cap), `bulkhead_fR` (6 hex nuts (6 on a washer): 2 × M3 x 12 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 16 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 25 socket cap).
+Top-loading (D57): each is a lower **saddle** (screw it to the floor from below) and a **bearing cap**
+(`bulkhead_cap_rL`, `bulkhead_cap_rR`, `bulkhead_cap_fL`, `bulkhead_cap_fR`) with no screws of its own: the deck screws hold it.
+`L` parts go on the left, `R` on the right (the slot has drift room on one side only, so swapped parts will not let the diff out). Press a 6700 bearing onto each diff outdrive; the diffs go in with the belts (§3.6).
 
 ## 3. Layshaft, motor and belts
 
-`motor_plate` (4 hex nuts (4 on a washer): 2 × M3 x 10 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 10 socket cap); `lay_holder` (3 hex nuts (3 on a washer): 2 × M3 x 10 flat-head (ISO 10642, countersunk in the floor), 1 × M3 x 10 socket cap).
+`motor_plate` (3 hex nuts (3 on a washer): 2 × M3 x 10 flat-head (ISO 10642, countersunk in the floor), 1 × M3 x 10 socket cap); `lay_holder` (2 hex nuts (2 on a washer): 2 × M3 x 10 flat-head (ISO 10642, countersunk in the floor)); caps `lay_cap_plate` (1 hex nut (1 on a washer): 1 × M3 x 10 socket cap), `lay_cap_holder` (1 hex nut (1 on a washer): 1 × M3 x 10 socket cap).
 
 1. Press an MR105 bearing into each end of `lay_drum`.
-2. On the 5 mm shoulder screw (the fixed axle), in order: `lay_spacer_head`, `motor_plate`, `lay_spacer_in`, `lay_drum`
-   (spur flange toward the motor), an M4 washer. Through `lay_holder`, M4 nyloc into its hex pocket; snug, the drum must spin
-   with a trace of end-play.
+2. On the 5 mm shoulder screw (the fixed axle), in order: `lay_spacer_head`, a 4 mm gap (the plate wall), `lay_spacer_in`,
+   `lay_drum` (spur flange toward the motor), an M4 washer, an 8 mm gap (the holder) and the M4 nyloc, loose. The plate and
+   holder are split at the axle: screw their lower halves down (step 7) and lay this cartridge in their half-bores.
 3. Spur (66T) to the drum flange with 3 self-tappers (drill 2.5 mm pilots through the drum's holes if the spur's own
    pattern does not line up).
 4. Motor to the plate with 2 M3 screws on fibre washers (2 between motor face and plate, 2 under each head): no plastic
@@ -80,6 +81,9 @@ check it spins, then screw the halves to the floor from below.
 5. **Pinion:** 33T for both tiers (the motor plate's slots take 30-38T: slide the motor until the
    gears mesh with a strip of paper between them, then tighten). One drop of thread-locker on the grub screw.
 6. Belts: front 141T (S3M 423 mm), rear 93T (S3M 279 mm), 3 mm wide. About 3 mm of deflection under a fingertip.
+   No slack, no tensioner: loop both belts over the drum and the diffs on the bench and lower all three together (each
+   diff swings into its slot on an arc about the drum). Drop on the 4 bearing caps and 2 layshaft caps, then snug the axle
+   with a 3 mm hex on its head. To service: deck off, pull the upper-link pins, lift the caps, and everything lifts out.
 7. Motor plate and lay holder: 2 floor screws each from below; their deck screws go in with the deck.
 
 ## 4. Suspension and steering
@@ -87,20 +91,22 @@ check it spins, then screw the halves to the floor from below.
 Run each M3 hinge bolt through its printed hole once with the driver so the part swings freely.
 
 1. `lower_arm` (4) between the bulkhead lugs, M3 × 30 + nyloc each, free swing, no rattle.
-2. `upper_link` (4) into the bulkhead fork, M3 × 16.
+2. `upper_link` (4) into the bearing cap fork, M3 × 16.
 3. Rear `upright_rear` (2): bearings in by thumb, pin to arm and link. Front `knuckle_L` / `knuckle_R`: ball studs top and bottom.
 4. CVDs into the outdrives and the hub bearings; fit one first and swing the arm through its travel; if it binds, stop.
    `wheel_hex` on its drive pin, then the M4 flange nyloc.
 5. Shocks: fit the 6.48 N/mm springs (Century Spring 71891), the printed droop ring (`droop_front` / `droop_rear`, shim with
    `droop_spacer_05`), lower eye to the arm, upper eye M3 × 25 through `tower_front` / `tower_rear` with one 2.0 mm alu shim.
-6. Steering: `bellcrank_L` / `bellcrank_R` on their deck posts, `drag_link` between them, a `tie_rod` to each knuckle.
+6. Steering: each bellcrank on an M3 × 12 flat-head up through the deck's countersunk pivot, 2 stacked 2.0 mm alu shims
+   (its bushing), the crank, a washer and an M3 nyloc, `drag_link` between them, a `tie_rod` to each knuckle.
 7. Servo on its posts; centre it, then pick the `servo_link` (or the ±2 mm spares) that gives equal lock both ways, no bind.
 
 ## 5. Deck and electronics
 
 1. Heat sink on the motor can, fans up, before the deck. **Fans need their own 5 V supply** (the receiver rail cannot
    carry them with the servo). Until they have one, keep to bench tests.
-2. `deck_front`, `deck_mid`, `deck_rear` on; deck screws into the bulkheads, motor plate, lay holder; tower feet M3 × 12.
+2. `deck_front`, `deck_mid`, `deck_rear` on; the 8 bulkhead deck screws (M3 × 25) go through the deck and the bearing caps into the saddle posts;
+   tower feet M3 × 30; motor plate and lay holder screws into their caps and the plate.
 3. ESC on its TPU pads. Battery bay lined with the cut LiPo bag. Battery in with its 2 straps.
    - **50 mph:** 2S pack (130 × 42 × 18 mm, XT60): use the XT60-to-T-plug lead or fit a T-plug to match the ESC.
    - **80 mph:** 3S pack (132 × 43 × 25 mm listed, T-plug).

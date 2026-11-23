@@ -55,29 +55,29 @@
   "material": "PETG-CF",
   "qty": 1,
   "size": [
-   40.0,
+   43.0,
    66.0,
    3.0
   ],
   "zrot": 0,
-  "vol": 3.5,
+  "vol": 4.2,
   "supports": "none",
   "layer": 0.2,
   "walls": "100% (3 mm plate)",
   "note": "D34: lap tongue under",
-  "hours": 0.5
+  "hours": 0.6
  },
  {
   "part": "deck_mid",
   "material": "PETG-CF",
   "qty": 1,
   "size": [
-   168.3,
-   168.3,
+   175.0,
+   66.0,
    9.0
   ],
-  "zrot": 45.0,
-  "vol": 17.1,
+  "zrot": 0,
+  "vol": 16.6,
   "supports": "none",
   "layer": 0.2,
   "walls": "100% (3 mm plate)",
@@ -89,12 +89,12 @@
   "material": "PETG-CF",
   "qty": 1,
   "size": [
-   119.0,
+   121.0,
    66.0,
    17.8
   ],
   "zrot": 0,
-  "vol": 18.2,
+  "vol": 18.5,
   "supports": "none",
   "layer": 0.2,
   "walls": "100% (3 mm plate)",
@@ -272,55 +272,174 @@
   "hours": 0.2
  },
  {
-  "part": "bulkhead_half",
+  "part": "bulkhead_rL",
   "material": "PETG-CF",
-  "qty": 2,
+  "qty": 1,
   "size": [
-   33.8,
-   43.0,
+   37.2,
+   28.0,
    22.3
   ],
   "zrot": 0,
-  "vol": 10.2,
+  "vol": 7.0,
   "supports": "none",
   "layer": 0.16,
   "walls": "5 walls / 40%",
-  "note": "cheek inner face down (bearing seat round); rear pair (same part both sides)",
-  "hours": 0.9
+  "note": "D57d rear LEFT saddle (mark L): cheek inner face down (bearing seat round)",
+  "hours": 0.7
+ },
+ {
+  "part": "bulkhead_rR",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   37.2,
+   28.0,
+   22.3
+  ],
+  "zrot": 0,
+  "vol": 7.0,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 40%",
+  "note": "D57d rear RIGHT saddle (mark R): mirror of rL",
+  "hours": 0.7
  },
  {
   "part": "bulkhead_fL",
   "material": "PETG-CF",
   "qty": 1,
   "size": [
-   33.8,
-   43.0,
+   37.2,
+   28.0,
    22.3
   ],
   "zrot": 0,
-  "vol": 10.2,
+  "vol": 7.0,
   "supports": "none",
   "layer": 0.16,
   "walls": "5 walls / 40%",
   "note": "D46 front LEFT: diff seat offset for a whole-tooth front belt (mark L)",
-  "hours": 0.9
+  "hours": 0.7
  },
  {
   "part": "bulkhead_fR",
   "material": "PETG-CF",
   "qty": 1,
   "size": [
-   33.8,
-   43.0,
+   37.2,
+   28.0,
    22.3
   ],
   "zrot": 0,
-  "vol": 10.2,
+  "vol": 7.0,
   "supports": "none",
   "layer": 0.16,
   "walls": "5 walls / 40%",
   "note": "D46 front RIGHT: mirror offset (mark R)",
-  "hours": 0.9
+  "hours": 0.7
+ },
+ {
+  "part": "bulkhead_cap_rL",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   32.6,
+   22.5,
+   14.0
+  ],
+  "zrot": 0,
+  "vol": 3.8,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 40%",
+  "note": "D57d rear LEFT bearing cap (mark L): inner face down; held by the 2 deck screws",
+  "hours": 0.4
+ },
+ {
+  "part": "bulkhead_cap_rR",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   32.6,
+   22.5,
+   14.0
+  ],
+  "zrot": 0,
+  "vol": 3.8,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 40%",
+  "note": "D57d rear RIGHT bearing cap (mark R)",
+  "hours": 0.4
+ },
+ {
+  "part": "bulkhead_cap_fL",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   32.6,
+   22.5,
+   14.0
+  ],
+  "zrot": 0,
+  "vol": 3.7,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 40%",
+  "note": "D57 front LEFT bearing cap (mark L)",
+  "hours": 0.4
+ },
+ {
+  "part": "bulkhead_cap_fR",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   32.6,
+   22.5,
+   14.0
+  ],
+  "zrot": 0,
+  "vol": 3.7,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 40%",
+  "note": "D57 front RIGHT bearing cap (mark R)",
+  "hours": 0.4
+ },
+ {
+  "part": "lay_cap_plate",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   29.0,
+   27.5,
+   12.8
+  ],
+  "zrot": 0,
+  "vol": 2.5,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 50%",
+  "note": "D57 motor-plate layshaft cap; captive nut for the deck-lap screw",
+  "hours": 0.3
+ },
+ {
+  "part": "lay_cap_holder",
+  "material": "PETG-CF",
+  "qty": 1,
+  "size": [
+   17.7,
+   27.5,
+   9.3
+  ],
+  "zrot": 0,
+  "vol": 2.2,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "5 walls / 50%",
+  "note": "D57 lay-holder cap; upper half of the nyloc trap",
+  "hours": 0.3
  },
  {
   "part": "lower_arm",
@@ -463,12 +582,12 @@
   "material": "PETG-CF",
   "qty": 1,
   "size": [
-   10.4,
+   12.1,
    78.0,
    12.5
   ],
   "zrot": 0,
-  "vol": 5.3,
+  "vol": 5.5,
   "supports": "none",
   "layer": 0.2,
   "walls": "4 walls / 40%",
@@ -480,12 +599,12 @@
   "material": "PETG-CF",
   "qty": 1,
   "size": [
-   10.4,
+   12.1,
    78.0,
    12.5
   ],
   "zrot": 0,
-  "vol": 5.3,
+  "vol": 5.5,
   "supports": "none",
   "layer": 0.2,
   "walls": "4 walls / 40%",
@@ -499,7 +618,7 @@
   "size": [
    16.5,
    11.1,
-   3.0
+   3.6
   ],
   "zrot": 0,
   "vol": 0.3,
@@ -516,10 +635,10 @@
   "size": [
    21.5,
    16.0,
-   3.0
+   3.6
   ],
   "zrot": 0,
-  "vol": 0.5,
+  "vol": 0.4,
   "supports": "none",
   "layer": 0.16,
   "walls": "100%",
@@ -618,15 +737,15 @@
   "size": [
    55.9,
    43.0,
-   16.4
+   12.3
   ],
   "zrot": 0,
-  "vol": 10.0,
+  "vol": 7.5,
   "supports": "tree, under the plate (bosses on the bed side)",
   "layer": 0.16,
   "walls": "5 walls / 50%",
   "note": "touches the motor only on 2 standoff bosses",
-  "hours": 0.9
+  "hours": 0.7
  },
  {
   "part": "lay_holder",
@@ -634,16 +753,16 @@
   "qty": 1,
   "size": [
    24.3,
-   43.0,
+   18.5,
    9.3
   ],
   "zrot": 0,
-  "vol": 4.1,
+  "vol": 1.9,
   "supports": "none",
   "layer": 0.16,
   "walls": "5 walls / 50%",
-  "note": "nut trap up; clamps the fixed layshaft axle (D50)",
-  "hours": 0.4
+  "note": "nut trap up; clamps the fixed layshaft axle (D50); D57: lower half",
+  "hours": 0.3
  },
  {
   "part": "lay_spacer_head",
