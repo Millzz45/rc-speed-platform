@@ -125,9 +125,10 @@ def _local_slot(front, side):
     return (lo, hi) if side > 0 else (-hi, -lo)
 
 
-def _local_screws(side):
-    """D57d: the two cap-screw x positions in this part's own frame (vehicle: forward -13.90, aft +12.90 from the axle)."""
-    return tuple(side * x for x in P.BH_SCREW_X)
+def _local_screws(side, front=True):
+    """D57d: the two cap-screw x positions in this part's own frame (vehicle: forward -13.90, aft +12.90 from the axle).
+    D58.2: the rear axle has its own pair (params.BH_SCREW_X_R; the same numbers on the 263 mm car)."""
+    return tuple(side * x for x in (P.BH_SCREW_X if front else P.BH_SCREW_X_R))
 
 
 def _cap_zone(dx, grow=0.0, front=False, side=1):
@@ -153,7 +154,7 @@ def bulkhead_saddle(dx=0.0, front=False, side=1):
         c += S2.solid(S2.rounded(S2.rect(xa, y1 - 1.0, xb, y1 + P.BH_POST_PAD), r_convex=1.0), P.BH_STEP_Z, P.BH_POST_Z - P.BH_STEP_Z)
     c = c - _cap_zone(dx, P.BH_CLR, front, side)
     c = _floor_anchors(c)
-    for xs in _local_screws(side):
+    for xs in _local_screws(side, front):
         c = AN.anchor(c, (xs, P.BH_SCREW_Y, P.BH_POST_Z), (0, 0, -1), f"bulkhead deck ({xs:+.2f}, {P.BH_SCREW_Y:g})",
                       t_try=(2.5, 3.0, 3.5),   # shallow: a 7 mm-deep nut would need an M3 x 35 (BH_POST_Z is set for M3 x 30)
                       keep=box(80, 40, 60, -40, P.CHEEK_Y[0] - 40, 0)    # no pad growth past the cheek's inner face (the diff is there)
@@ -169,7 +170,7 @@ def bulkhead_cap(dx=0.0, front=False, side=1):
     c = _bulkhead_body(dx, P.BH_HW, P.BH_STEP_Z) & _cap_zone(dx, 0.0, front, side)
     y0, y1 = P.CHEEK_Y
     c &= S2.solid_xz(S2.rounded(S2.rect(-P.BH_BRIDGE_HW, P.DIFF_Z - 1, P.BH_BRIDGE_HW, P.DECK_Z), r_convex=3.0), y0 - 5, 50)
-    for xs in _local_screws(side):
+    for xs in _local_screws(side, front):
         c -= clear_hole(xs, P.BH_SCREW_Y, P.BH_POST_Z, P.DECK_Z - P.BH_POST_Z)
     for sx in (1, -1):                       # spring clearance: shocks sit behind the axle; the right-hand cap is this one turned
         lo, hi = shock_ends(0.0, 1)          # 180 deg, so its spring is at local -x: clear both sides

@@ -10,7 +10,7 @@
 | ESC 3 motor leads | motor 3 bullets | if the motor runs backwards, swap any two |
 | ESC signal lead | receiver CH2 (throttle) | the ESC's BEC powers the receiver and servo |
 | Servo | receiver CH1 (steering) |  |
-| Fan pair on the heat sink | a separate 5 V BEC (not on the BOM yet) | never on the receiver rail: it carries the servo |
+| Fan pair on the heat sink | the 5 V regulator in `ubec_bridge` on the servo, fed by the tap cable on the pack's balance plug | never on the receiver rail: it carries the servo. Take the tap cable off whenever the main plug is off |
 
 Route the motor leads over the deck, away from the belts. Zip-tie nothing to a moving arm.
 

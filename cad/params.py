@@ -17,7 +17,18 @@ BED = (180.0, 180.0, 180.0)          # A1 Mini / Prusa Mini build volume
 BED_MARGIN = 2.0                     # parts must fit BED - margin
 
 # --- layout --------------------------------------------------------------------
-WB = 263.0            # DESIGN (D27): the owner's scale touring shell body at our 64 mm tire (1:10.6); was 216 (D16)
+# D58.2 (owner 2026-11-24 "Yes, wheelbase next"): RC_VARIANT picks a second LENGTH of the same chassis for bought 1/10
+# 190 mm bodies (listed at 257 mm, sold as fitting 254-260). "" (default) = the 263 mm car: the owner's scale shell and the GT-2 as
+# published; nothing about it changes. "u258" = the rear belt one stock size shorter (90T, 270 mm, was 93T): the rear axle
+# comes 4.52 mm forward, the layshaft, front belt, motor, pack and every front part stay. Each variant builds into its
+# own folder (OUT_NAME) and scores into its own results folder (rnd/tests/common.py); the two never share a file.
+import os as _os
+VARIANT = _os.environ.get("RC_VARIANT", "")
+WB_VARIANTS = {"u257": 256.98, "u258": 258.48, "u260": 259.99}   # rear belt 89T / 90T / 91T on today's layshaft (running_gear.belt_len; rnd/d58/belt_wb.py)
+assert VARIANT in ("",) + tuple(WB_VARIANTS), f"unknown RC_VARIANT {VARIANT!r}"
+WB_UNIVERSAL = WB_VARIANTS["u258"]
+OUT_NAME = "out" + ("_" + VARIANT if VARIANT else "")
+WB = WB_VARIANTS.get(VARIANT, 263.0)            # DESIGN (D27): the owner's scale touring shell body at our 64 mm tire (1:10.6); was 216 (D16)
 TRACK_F = 163.0       # DESIGN (kept from Phase 2 packaging; fits the 194 mm body)
 TRACK_R = 161.0       # DESIGN
 LAYSHAFT_X = 167.41   # D50: 3Racing 3 mm belts S3M423-3 (141T) front + S3M279-3 (93T) rear on 20T lay pulleys: centre distances
@@ -102,7 +113,7 @@ LAY_PULLEY_T = 20               # D50: 20T (was 18T) so the two 3 mm belts the d
 #   (CdA 141 cm2; the old 62 cm2 was an Ahmed over-correction of FluidX3D) 23T was 91 mph at 82 A, over the 60 A ESC;
 #   18T is 79.5 mph at 50 A (rnd/power/gear_sweep_low.py). Belts: front 142T, rear 90T (LAYSHAFT_X 170.52).
 #   History: DESIGN (D46: 22 -> 23T, 38/23 = 1.65: 98.6 -> 101.6 mph after the D45b belted tyre cut tyre growth). (D38): 38/22 = 1.73 internal ratio, was 19T (2.0): 90 -> 100 mph at the CFD drag; 21T = fallback drum if the blower test finds no downforce (rnd/tests/test_power.py)
-BELT_W = 3.0                    # D50: 3 mm S3M belts (3Racing SAK-A577 / SAK-A576, stated 3 mm). Was 6 mm, which the bought diff's
+BELT_W = float(_os.environ.get("RC_BELT_W", "3.0"))   # STUDY override only (rnd/d60/belt_fit.sh, belt_track.py); no build sets it. D50: 3 mm S3M belts (3Racing SAK-A577 / SAK-A576, stated 3 mm). Was 6 mm, which the bought diff's
 #   touring-car pulley very probably does not take (rnd/market/parts_followup_d50.md); flange gap still unpublished -> gauge
 PINION_T, SPUR_T = 35, 66       # D55: 35T (Arrowmax AM-348035, same family and price as the 34T) for >= 80 mph at the HIGH drag; D50 34T: 48P pinion 34T (Arrowmax AM-448034) on the 66T spur; was 38T. The motor plate has no mesh slot,
 #   so GEAR_CD fixes the pinion size
@@ -168,9 +179,18 @@ def bh_drift(axle_x):
     x0 = math.sqrt(R * R - (DIFF_Z - LAYSHAFT_Z) ** 2)
     zc = DIFF_Z + (BH_POST_Z - (DIFF_Z - DIFF_BRG[1] / 2))
     return x0 - math.sqrt(R * R - (zc - LAYSHAFT_Z) ** 2)
-BH_SLOT_HW = round(DIFF_BRG[1] / 2 + 0.1 + max(bh_drift(0.0), bh_drift(WB)), 2)   # 9.10 mm: widest slot side (rear, toward the layshaft)
+BH_SLOT_HW = round(DIFF_BRG[1] / 2 + 0.1 + max(bh_drift(0.0), bh_drift(263.0)), 2)   # 9.10 mm: widest slot side (rear, toward the layshaft) at the 263 mm design; D58.2: not the variant's, so the FRONT parts are the same on every chassis length
 BH_SLOT_HW_F = round(DIFF_BRG[1] / 2 + 0.1 + bh_drift(0.0), 2)   # 8.45 mm (D57c): the front arc drifts only 0.85 mm
 BH_SLOT_SEAT = round(DIFF_BRG[1] / 2 + 0.1, 2)                     # 7.60 mm (D57d): the side AWAY from the layshaft needs no drift room
+# D58.2b: the REAR slot keeps the 263 mm car's drift room (1.50 mm) on a shorter rear belt while the bearing still clears the
+# slot edge on its tighter arc. The slot has 0.10 mm of air beside the seated bearing; a shorter belt uses some of it at the top
+# of the lift-out: u258 drifts 1.578 mm, 0.076 more, so 0.024 mm of air is left (263 mm: 0.10). That keeps the rear bulkheads,
+# their caps and the cap screws the SAME parts as the 263 mm car, with the nut on its washer (the first u258 build moved the
+# forward screw 0.08 mm and the washer pocket no longer fitted: 478 -> 300 N, three new R38 failures). A length whose arc would
+# leave under 0.02 mm (u257: -0.003) gets its own wider slot instead.
+BH_ARC_AIR_R = round(0.1 - (bh_drift(WB) - bh_drift(263.0)), 3)        # air beside the rear bearing at the top of its lift-out, in the 263 slot
+BH_REAR_COMMON = BH_ARC_AIR_R >= 0.02
+BH_DRIFT_R = bh_drift(263.0) if BH_REAR_COMMON else bh_drift(WB)
 FRONT_DIFF_DX = -0.36     # DESIGN copy of running_gear.front_diff_dx() (params cannot import it; running_gear asserts they agree)
 
 
@@ -178,7 +198,7 @@ def bh_slot(axle_x):
     """D57d: the U-slot's two edges (x from the axle, vehicle frame) at this axle. The diff only drifts TOWARD the layshaft on
     its belt arc, so only that side gets the drift; the bearing sits FRONT_DIFF_DX off the axle at the front (D46)."""
     b = FRONT_DIFF_DX if axle_x < WB / 2 else 0.0
-    d = bh_drift(axle_x)
+    d = bh_drift(axle_x) if axle_x < WB / 2 else BH_DRIFT_R
     if LAYSHAFT_X > axle_x:                                   # front: layshaft behind, drift aft (+x)
         return round(b - BH_SLOT_SEAT, 2), round(b + BH_SLOT_SEAT + d, 2)
     return round(b - BH_SLOT_SEAT - d, 2), round(b + BH_SLOT_SEAT, 2)
@@ -189,6 +209,9 @@ def bh_slot(axle_x):
 # front slot's aft edge (-0.36 + 7.60 + 0.85 = 8.09) + 0.15 + 1.0 + 3.65 = 12.89, rounded up. At +13.90 (D57b) the aft screw's shank
 # came within 0.52 mm of the shock spring at full droop and its deck hole broke into the spring cut-out; at 12.90 the gap is ~1.0 mm.
 BH_SCREW_X = (round(-(BH_SLOT_HW + BH_CLR + 1.0 + 3.65), 2), 12.90)
+# D58.2: the REAR axle's pair by the same rule on the rear slot. 263 mm: identical (-13.90). D58.2b: u258 and u260 keep the 263 mm
+# rear slot (BH_DRIFT_R above), so -13.90 there too; only a length that needs its own wider slot moves the forward screw.
+BH_SCREW_X_R = (round(-(round(DIFF_BRG[1] / 2 + 0.1 + max(bh_drift(0.0), BH_DRIFT_R), 2) + BH_CLR + 1.0 + 3.65), 2), 12.90)
 BH_SCREW_DX = -BH_SCREW_X[0]                                                     # 13.90 (kept for older callers: the forward screw)
 LAY_SPLIT_LEG = 3.0       # DESIGN: layshaft caps (plate + holder) split at the axle centre; the cap's legs reach 3 mm lower to locate it in X
 PIVOT_SPACER = (5.5, 4.0)  # D57: bellcrank pivot = M3 x 12 flat-head up through the deck (countersunk underneath), two stacked
@@ -244,7 +267,7 @@ def deck_holes():
     bxs = BH_SCREW_X if TOP_LOAD else (-10, 10)                                # D57d: the bearing-cap screws (forward, aft)
     by = BH_SCREW_Y if TOP_LOAD else 27.0
     front = [(dx, s * by) for s in (1, -1) for dx in bxs]
-    rear = [(WB + dx, s * by) for s in (1, -1) for dx in bxs]
+    rear = [(WB + dx, s * by) for s in (1, -1) for dx in (BH_SCREW_X_R if TOP_LOAD else bxs)]
     steer = [(STEER_PIVOT[0], s * STEER_PIVOT[1]) for s in (1, -1)]
     lay = [(LAYSHAFT_X, sum(LAY_HOLDER_Y) / 2), (MOTOR_X - 3, MOTOR_PLATE_Y[1]), (LAYSHAFT_X - 3, MOTOR_PLATE_Y[1] - 4.1)]   # D53: lap screw 4.1 mm outboard, its nut clear of the spur
     return front + rear + steer + lay
@@ -259,7 +282,11 @@ def lay_holder_floor_holes():
 
 
 # --- electronics (envelopes: x0, y0, z0, sx, sy, sz) --------------------------
-BATTERY_BOX = (79.5, 20.5, FLOOR_TOP + 3, 132.0, 43.2, 29.5)   # D52: height 29.5 (was 25.5): Zeee's 2-pack listing of this pack says 132*43*29 and 25 mm would make it denser than 12 comparable packs (rnd/market/deep_d52/battery_charger.md); 29.5 clears chassis and shell as built (rnd/tools/d52_fit.py).    # D51: a 4 mm move aft (to hold 48/52 with the speed meter fitted) was tried and REVERTED: the shell is cut 1 mm round this position and the pack touched it (rnd/tests/test_tech.py R16); it needs a body rebuild. D47 48/52: aft past the lay holder (outboard of its M5 end, Y 19.5); was (28.3, 10.3); X 74 -> 69.5 after the source-shell weigh (47.7 -> 48.0 %)   # D46: bay for the Zeee 3S 5200 soft case (132 x 43 x 25, listing) on 3 mm TPU pads,
+# D58.3: on the 258.5 mm chassis the pack sits 6 mm further forward. The rear axle moved 4.52 mm toward a centre of mass that
+# did not move, so the front share fell from 47.93 % to 47.53 % (the edge of the owner's 48/52 +-0.5 band); 5.8 mm of pack
+# puts it back (rnd/d58/wheelbase_u258.md). The end stops and the corridor wall follow the box; the straps stay put.
+BATTERY_DX = {"u258": -6.0}.get(VARIANT, 0.0)
+BATTERY_BOX = (79.5 + BATTERY_DX, 20.5, FLOOR_TOP + 3, 132.0, 43.2, 29.5)   # D52: height 29.5 (was 25.5): Zeee's 2-pack listing of this pack says 132*43*29 and 25 mm would make it denser than 12 comparable packs (rnd/market/deep_d52/battery_charger.md); 29.5 clears chassis and shell as built (rnd/tools/d52_fit.py).    # D51: a 4 mm move aft (to hold 48/52 with the speed meter fitted) was tried and REVERTED: the shell is cut 1 mm round this position and the pack touched it (rnd/tests/test_tech.py R16); it needs a body rebuild. D47 48/52: aft past the lay holder (outboard of its M5 end, Y 19.5); was (28.3, 10.3); X 74 -> 69.5 after the source-shell weigh (47.7 -> 48.0 %)   # D46: bay for the Zeee 3S 5200 soft case (132 x 43 x 25, listing) on 3 mm TPU pads,
                                                                # between the front shock (x 27.1) and the lay holder (x 160.7); was CNHL 3S 2200 at x 45
 BATTERY_PACK, BATTERY_MASS_G = "3S 5200 soft", 343.0          # D46: rnd/power/pack_options.csv row; G2 30 min (R30)
 ESC_BOX = (184.0, -52.0, FLOOR_TOP + 3, 52.0, 39.0, 39.0)      # D52 (owner: "Keep the Surpass"): the Surpass KK 60A case is LISTED 51.5 x 38.5 x 38.5 mm (maker table, rnd/market/deep_d52/power.md); the bay was 50 x 35 x 34. Grown 4 mm toward the tub edge (-Y), so the belt-corridor wall stays 6.8 mm from the rear belt; top at z 51, 1 mm under the deck. The SHELL on disk is still cut round the old box: body rebuild needed. Was (184.0, -48.0, z, 50.0, 35.0, 34.0)      # D47 48/52: turned 90 deg into the empty right-rear bay behind the spur; was (84.5, -61) 35 x 50       # combo ESC, transverse (D34: 1.5 mm forward for the fan heat sink)

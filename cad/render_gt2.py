@@ -13,7 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import params as P  # noqa: E402
 
-OUT = os.path.join(os.path.dirname(HERE), "out", "body_gt2")
+OUT = os.path.join(os.path.dirname(HERE), P.OUT_NAME, "body_gt2")
 COL = {"body": (0.86, 0.33, 0.12), "wing": (0.16, 0.16, 0.18), "carrier": (0.3, 0.3, 0.32), "tyre": (0.08, 0.08, 0.08),
        "chassis": (0.55, 0.55, 0.58)}
 

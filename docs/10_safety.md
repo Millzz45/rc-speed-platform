@@ -13,9 +13,9 @@
 
 ## High speed
 
-- 81.5 mph is about 131 km/h: a 2 kg car at that speed can break bones. Run only on closed, empty
+- 81.9 mph is about 132 km/h: a 2 kg car at that speed can break bones. Run only on closed, empty
   ground with nobody downrange, never on a public road.
-- Runway: the 80 mph tier needs about 107 m to reach 90 % of top speed, plus room to stop. Mark a run-off area.
+- Runway: the 80 mph tier needs about 106 m to reach 90 % of top speed, plus room to stop. Mark a run-off area.
 - Transmitter on first, off last. Test fail-safe before every session.
 - Never hold the car with the wheels on the ground and the pack connected.
 - Eye protection when testing at speed.

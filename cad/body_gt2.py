@@ -34,7 +34,7 @@ PROJ = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import params as P  # noqa: E402
 
-OUT = os.path.join(PROJ, "out", "body_gt2")
+OUT = os.path.join(PROJ, P.OUT_NAME, "body_gt2")
 CACHE = os.path.join(OUT, "cache")
 PFX = "gt2"
 T = getattr(P, "GT2_T", 1.2)          # wall: 2 lines on a 0.6 mm nozzle, 3 on a 0.4
@@ -43,7 +43,18 @@ SKIRT = P.BODY_SKIRT_Z
 BED_LIM = min(P.BED[0], P.BED[1]) - 2 * P.BED_MARGIN
 
 # ---------------------------------------------------------------- style tables (x, value)
-X0, X1 = -92.0, 338.0
+# D58.2: the tables below are drawn for the 263 mm wheelbase. On another chassis length (params.RC_VARIANT) the front
+# (x <= 100) stays, everything from x 190 back moves with the rear axle by DWB, and the difference is taken up evenly
+# in the cabin's middle (x 100..190, where the body is close to a straight tube). DWB = 0 leaves every number as drawn.
+DWB = P.WB - 263.0
+_GXA, _GXB = 100.0, 190.0
+
+
+def gx(x):
+    return x if x <= _GXA else x + DWB if x >= _GXB else x + DWB * (x - _GXA) / (_GXB - _GXA)
+
+
+X0, X1 = -92.0, 338.0 + DWB
 HALF_W = [(-92, 44), (-91.2, 54), (-89.5, 62), (-86.5, 69), (-82, 75), (-76, 80.5), (-66, 86), (-54, 90), (-40, 92.5),
           (-20, 93.5), (0, 93.5), (12, 93), (30, 91), (55, 88.5), (90, 87.5), (130, 87.5), (170, 88.5), (205, 91),
           (232, 93), (263, 93.5), (288, 93), (308, 90.5), (322, 86.5), (332, 81), (338, 76)]
@@ -65,6 +76,9 @@ CAB_Z = [72, 82.5, 92, 100.5, 106.5, 108.5, 108, 104.5, 98, 89.5, 80.5, 69]
 N_CAB = 2.5
 CAB_ZB = 40.0
 NPTS = 144                             # points round every section
+HALF_W, TOP_Z, N_MAIN = ([(gx(x), v) for x, v in t] for t in (HALF_W, TOP_Z, N_MAIN))
+POD_R["x"] = [gx(x) for x in POD_R["x"]]
+CAB_X = [gx(x) for x in CAB_X]
 
 
 def pchip(tab):
@@ -417,7 +431,7 @@ def wall_report(outer, inner, n=6000):
 
 
 # ---------------------------------------------------------------- vents and splitter
-SPLIT_BLADE = 12.0                     # splitter blade ahead of the nose skin (the owner's milder 12 mm, D49)
+SPLIT_BLADE = float(os.environ.get("GT2_SPLIT_BLADE", 4.0))    # splitter blade ahead of the nose skin. D59b: 4 mm (D59: 6 mm; D49: 12 mm). The 12 mm blade put half the downforce on the front axle and R32 failed on most airflow runs; 4 mm evens out the R32 and R11 margins (rnd/d59/rule_margin_4mm.md); env override for airflow studies only
 SPLIT_T = 2.0
 
 
@@ -456,7 +470,7 @@ def splitter(outer):
 
 
 # ---------------------------------------------------------------- panels and seams
-SEAM_X = (64.0, 196.0)                 # transverse cuts: windscreen base / behind the cabin, clear of both arches
+SEAM_X = (64.0, 196.0 + DWB)                 # transverse cuts: windscreen base / behind the cabin, clear of both arches
 FL, FL_T = 7.0, 1.2                    # flange: reaches 7 mm under the neighbour, 1.2 mm thick
 SEAM_GAP = 0.15
 BLK_W, BLK_D = 10.0, 9.0               # seam block: across the seam line x into the car
@@ -720,10 +734,10 @@ def carriers(outer, inner_tm, ch, ch_u, near_ch):
 
 
 # ---------------------------------------------------------------- wing (original NACA 6412, inverted)
-WING_LE = (338.4, 136.9)               # same placement, chord, angle and span as the car's fitted wing (owner rule:
+WING_LE = (338.4 + DWB, 136.9)               # same placement, chord, angle and span as the car's fitted wing (owner rule:
 WING_C, WING_A = 30.4, 18.9            # the wing's position and angle never change); the section is an original NACA
 WING_SPAN = 162.0                      # 6412 and the end plates and legs are original
-WING_X, WING_Y = 326.0, 40.0           # leg peg centre (each side)
+WING_X, WING_Y = 326.0 + DWB, 40.0           # leg peg centre (each side)
 PEG = (14.0, 8.0, 12.0)                # peg x, y, depth below the deck skin
 
 
@@ -753,7 +767,7 @@ def wing(outer, outer_tm):
     o = np.array([WING_LE[0], half + 0.2, WING_LE[1]])
     Mx = [[ch_[0], nn[0], 0, o[0]], [ch_[1], nn[1], -1, o[1]], [ch_[2], nn[2], 0, o[2]]]
     plane = w.transform(Mx)
-    ep = mf.CrossSection([np.array([(334.0, 128.0), (371.0, 136.0), (371.0, 155.0), (334.0, 146.0)])], mf.FillRule.Positive)
+    ep = mf.CrossSection([np.array([(334.0 + DWB, 128.0), (371.0 + DWB, 136.0), (371.0 + DWB, 155.0), (334.0 + DWB, 146.0)])], mf.FillRule.Positive)
     parts = [plane]
     for sgn in (1, -1):
         e = mf.Manifold.extrude(ep, 2.0).transform([[1, 0, 0, 0], [0, 0, -1, 0], [0, 1, 0, 0]])      # x-z plate, y 0..-2
@@ -765,7 +779,7 @@ def wing(outer, outer_tm):
         z_deck = float(loc[0][2])
         zs[sgn] = z_deck
         zc = lambda x: WING_LE[1] + (x - WING_LE[0]) * math.tan(th)   # noqa: E731
-        lp = np.array([(WING_X - 7.0, z_deck - 3.0), (WING_X + 7.0, z_deck - 3.0), (357.0, zc(357.0)), (345.0, zc(345.0))])
+        lp = np.array([(WING_X - 7.0, z_deck - 3.0), (WING_X + 7.0, z_deck - 3.0), (357.0 + DWB, zc(357.0 + DWB)), (345.0 + DWB, zc(345.0 + DWB))])
         leg = mf.Manifold.extrude(mf.CrossSection([lp], mf.FillRule.Positive), 4.0).transform([[1, 0, 0, 0], [0, 0, -1, 0], [0, 1, 0, 0]])
         leg = leg.translate((0, sgn * WING_Y + 2.0, 0))
         leg = leg - outer

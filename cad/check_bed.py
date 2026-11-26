@@ -29,7 +29,7 @@ def best_angle(xy):
 
 
 def main():
-    files = sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "out", "stl", "*.stl")))
+    files = sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", P.OUT_NAME, "stl", "*.stl")))
     if not files:
         sys.exit("no STLs - run build_all.py first")
     bad = 0

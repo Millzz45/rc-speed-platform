@@ -11,13 +11,13 @@
    "qty": 1,
    "zrot": 0,
    "size": [
-    168.0,
-    103.6,
+    160.0,
+    95.5,
     92.1
    ],
-   "vol": 30.72,
-   "mass_g": 39.0,
-   "tris": 22794,
+   "vol": 28.57,
+   "mass_g": 36.3,
+   "tris": 22772,
    "walls": "solid skin (2 lines at 0.6 mm)",
    "supports": "tree, inside only (paint side clean)"
   },
@@ -27,13 +27,13 @@
    "qty": 1,
    "zrot": 0,
    "size": [
-    168.0,
-    110.6,
+    160.0,
+    102.5,
     92.1
    ],
-   "vol": 33.58,
-   "mass_g": 42.6,
-   "tris": 24436,
+   "vol": 31.43,
+   "mass_g": 39.9,
+   "tris": 24404,
    "walls": "solid skin (2 lines at 0.6 mm)",
    "supports": "tree, inside only (paint side clean)"
   },
@@ -150,7 +150,7 @@
    "supports": "tree: under the plane and end plates (pegs up)"
   }
  ],
- "mass_g": 341.5,
+ "mass_g": 336.1,
  "info": {
   "stations": 26,
   "stations_by_seam": {

@@ -20,14 +20,15 @@ optional tech pack). **No heat-set inserts**: every threaded point is a captive 
 
 ## Hardware (counted from the CAD)
 
-65<!--D:nut_count=65--> M3 hex nuts (DIN 934, 5.5 mm AF × 2.4 mm), 45<!--D:washer_count=45--> of them on an M3 washer (DIN 125, 7 × 0.5 mm) under the nut.
+65<!--D:nut_count=65--> M3 hex nuts (DIN 934, 5.5 mm AF × 2.4 mm), 49<!--D:washer_count=49--> of them on an M3 washer (DIN 125, 7 × 0.5 mm) under the nut.
 Buy one 100-pack of each.
 
 | Screw | Count |
 |---|---|
 | M3 x 10 flat-head (ISO 10642, countersunk in the floor) | 4 |
-| M3 x 10 socket cap | 9 |
+| M3 x 10 socket cap | 7 |
 | M3 x 12 flat-head (ISO 10642, countersunk in the floor) | 10 |
+| M3 x 12 socket cap | 2 |
 | M3 x 14 flat-head (ISO 10642, countersunk in the floor) | 6 |
 | M3 x 14 socket cap | 2 |
 | M3 x 16 flat-head (ISO 10642, countersunk in the floor) | 8 |
@@ -47,14 +48,14 @@ Each nut slides into a slot from the side of the part **before** the part is fit
 slide the washer in first (it goes on the screw-head side of the nut), then the nut. Push with tweezers until you can look
 down the screw hole and see the nut's thread centred. The hex slot has two flats along it, so the nut cannot turn. If a
 slot faces down when the part is in place, thread a screw two turns into the nut first, fit the part, then swap in the
-real screw. 34<!--D:pad_sites=34--> sites sit in small grown pads of plastic (they look like a bump on the part): they are
+real screw. 30<!--D:pad_sites=30--> sites sit in small grown pads of plastic (they look like a bump on the part): they are
 normal nut slots.
 
 ## 1. Floor
 
 1. Lay `tub_front`, `tub_mid` and `tub_rear` together at the two laps. Drop a hex nut into each of the 16<!--D:lap_nuts=16--> hex
    recesses on top of the laps and drive an M3 × 6 flat-head up through each from the underside.
-2. Nuts in the tub: `tub_front` 2 hex nuts: 2 × M3 x 10 socket cap; `tub_mid` 2 hex nuts: 2 × M3 x 10 socket cap.
+2. Nuts in the tub: `tub_front` 2 hex nuts (2 on a washer): 2 × M3 x 10 socket cap; `tub_mid` 2 hex nuts (2 on a washer): 2 × M3 x 12 socket cap.
 3. Press the TPU `battery_pad` (2) and `esc_pad` (2) over the floor pegs.
 4. `front_mount` (8 hex nuts (8 on a washer): 2 × M3 x 25 socket cap, 2 × M3 x 10 socket cap, 2 × M3 x 12 flat-head (ISO 10642, countersunk in the floor), 2 × M3 x 14 flat-head (ISO 10642, countersunk in the floor)): screw it to the floor from below, then the TPU `bumper` to its face.
 5. `rear_spacer` on the floor tail, `rear_mount` on top (6 hex nuts (6 on a washer): 2 × M3 x 14 socket cap, 4 × M3 x 14 flat-head (ISO 10642, countersunk in the floor)); 4 floor screws up through all three.
@@ -103,8 +104,15 @@ Run each M3 hinge bolt through its printed hole once with the driver so the part
 
 ## 5. Deck and electronics
 
-1. Heat sink on the motor can, fans up, before the deck. **Fans need their own 5 V supply** (the receiver rail cannot
-   carry them with the servo). Until they have one, keep to bench tests.
+1. Heat sink on the motor can, fans up, before the deck. **The fans have their own 5 V supply** (the receiver rail cannot
+   carry them with the servo): the small regulator on the parts list, in the printed `ubec_bridge`.
+   - Check the regulator's jumper is on **5 V**, then push it into the bridge's sleeve until about 3 mm shows at each end.
+   - Take out the two screws of the servo's **rear** tab, lay the bridge on the servo (its ear flat on that tab, the sleeve
+     on top of the servo case, pointing forward) and refit them with the two longer screws from the screw list.
+   - Tap cable on the pack's balance plug → regulator; regulator → joiner cable → fan plug. The heat sink's maker does not
+     say which plug the fans have, so check it when the part arrives before ordering the joiner.
+   - **Whenever the pack's main plug is off, take the tap cable off too.** The regulator has no off switch and would
+     flatten the pack in less than a day.
 2. `deck_front`, `deck_mid`, `deck_rear` on; the 8 bulkhead deck screws (M3 × 25) go through the deck and the bearing caps into the saddle posts;
    tower feet M3 × 30; motor plate and lay holder screws into their caps and the plate.
 3. ESC on its TPU pads. Battery bay lined with the cut LiPo bag. Battery in with its 2 straps.

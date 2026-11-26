@@ -118,7 +118,11 @@ def tub_full():
         t += cyl_z(PEG_D, PEG_H + 2.0, x, y, P.FLOOR_TOP - 2.0)
     # D53: servo tab screws (along -Y into the posts) into captive square nuts, cut last so the walls are checked on the finished tub
     for i, (hx, z) in enumerate(servo_sites):
-        t = AN.anchor(t, (hx, P.SERVO_TAB_Y, z), (0, -1, 0), f"tub servo post {i + 1}", keep=electronics()["servo"])   # D55: pad clipped at the servo
+        # D59: washer under every servo-post nut. The servo case end stands 4.25 mm from the screw, so the washer seat cannot
+        # keep a 1 mm wall on that side; its slot opens through the post's servo-side face instead (the case closes it) and
+        # the nut sits 4 mm deep. R38 leaves out the washer face and outline within 1 mm of that open face.
+        t = AN.anchor(t, (hx, P.SERVO_TAB_Y, z), (0, -1, 0), f"tub servo post {i + 1}", keep=electronics()["servo"],   # D55: pad clipped at the servo
+                      open_mouth=True, t_try=(4.0, 3.5, 3.0))
     return t
 
 
@@ -529,9 +533,60 @@ def heatsink():
     return sleeve + fans
 
 
+# D60 fan supply. The motor heat sink's two 5 V fans may not hang on the receiver rail (the servo can already load the ESC's
+# 3 A regulator to 2.83 A, R14), so they get their own 5 V regulator ("UBEC") fed from the pack's balance plug
+# (rnd/market/fan_bec_d59.md). It rides in a printed sleeve on top of the servo case, on a bar held by the two REAR
+# servo-tab screws (upper and lower): no new hole in the chassis. Prints with the bar face on the bed (the sleeve is a
+# 6.4 mm bridge). D60b: the first draft spanned the two UPPER screws; its front ear crossed the scale shell shell's floor sheet
+# (z 29.0-29.1, uncut ahead of the servo case at x < 35; rnd/d60/check_sleeve_shell.py read 0.00 mm). The rear tab has no
+# floor sheet over it, so both screws moved there and the bar stops at the sleeve's front end.
+UBEC_BODY = (36.0, 17.0, 6.0)            # RMRC 3A UBEC body, LISTED 36 x 17 x 6 mm (rnd/market/fan_bec_d59.md) [unverified until in hand]
+UBEC_TAB_T = 2.5                         # servo tab thickness [estimate: the same 2.5 mm the screw-length check uses]
+UBEC_EAR_T, UBEC_WALL_Y, UBEC_WALL_Z, UBEC_LEN = 2.0, 1.6, 1.2, 30.0
+UBEC_DX = 2.0                            # D60: sleeve + regulator sit 2 mm rearward of the servo-case centre, in the middle of the 39.7 mm
+                                         # window between the scale shell shell's front arch liner (X <= 38.3 at Y <= -44.2, Z 33-61; centred, the
+                                         # regulator's corner was 0.0 mm from it, R39) and tub_mid (X >= 78 at Z ~31; a 6 mm shift hit it)
+
+
+def _ubec_frame():
+    sx, sy, sz, sl, sw, sh = P.SERVO_BOX
+    y_tab = P.SERVO_TAB_Y + UBEC_TAB_T               # the tab face the screw heads bear on
+    z0 = sz + sh + 0.3                               # 0.3 mm over the servo case
+    return sx, sl, y_tab, z0
+
+
+def ubec_bridge():
+    sx, sl, y_tab, z0 = _ubec_frame()
+    bl, bw, bt = UBEC_BODY
+    cy, cz = bw + 0.5, bt + 0.4                      # cavity: 0.25 mm a side, 0.2 mm top and bottom, pinched by two crush ribs
+    z1 = z0 + 2 * UBEC_WALL_Z + cz
+    xc = sx + sl / 2 + UBEC_DX
+    hx = P.SERVO_TAB_HOLES_X[1]                       # D60b: the REAR tab only
+    z_mid = P.SERVO_BOX[2] + P.SERVO_BOX[5] / 2
+    z_screws = (z_mid - P.SERVO_TAB_HOLES_DZ / 2, z_mid + P.SERVO_TAB_HOLES_DZ / 2)
+    b = box(hx + 4.0 - (xc - UBEC_LEN / 2), UBEC_EAR_T, z1 - z0, xc - UBEC_LEN / 2, y_tab, z0)   # the bar: sleeve wall, run back to the rear tab
+    b += box(8.0, UBEC_EAR_T, z0 - (z_screws[0] - 4.5) + 0.01, hx - 4.0, y_tab, z_screws[0] - 4.5)   # one ear down the rear tab, under both screw heads
+    for zs in z_screws:
+        b -= cyl_y(P.M3_CLEAR, UBEC_EAR_T + 2, hx, y_tab + UBEC_EAR_T / 2, zs)
+    y_in = y_tab                                     # the cavity's bar-side wall is the bar itself
+    slv = box(UBEC_LEN, cy + UBEC_WALL_Y + 0.01, z1 - z0, xc - UBEC_LEN / 2, y_in - cy - UBEC_WALL_Y, z0)
+    b += slv
+    b -= box(UBEC_LEN + 2, cy, cz, xc - UBEC_LEN / 2 - 1, y_in - cy, z0 + UBEC_WALL_Z)
+    for yr in (y_in - cy * 0.3, y_in - cy * 0.7):    # two crush ribs under the roof: 0.3 mm of pinch on a 6.0 mm body
+        b += box(UBEC_LEN, 0.8, 0.5, xc - UBEC_LEN / 2, yr - 0.4, z0 + UBEC_WALL_Z + cz - 0.5)
+    return b
+
+
+def ubec_envelope():
+    """The regulator itself in its sleeve (3 mm of it shows at each end, where its leads leave)."""
+    sx, sl, y_tab, z0 = _ubec_frame()
+    bl, bw, bt = UBEC_BODY
+    return box(bl, bw, bt - 0.2, sx + sl / 2 + UBEC_DX - bl / 2, y_tab - 0.25 - bw, z0 + UBEC_WALL_Z + 0.2)
+
+
 def electronics():
     bx = lambda b: box(b[3], b[4], b[5], b[0], b[1], b[2])  # noqa: E731
     motor = cyl_y(P.MOTOR_D, P.MOTOR_L, P.MOTOR_X, P.MOTOR_Y0 - P.MOTOR_L / 2, P.LAYSHAFT_Z)
     return {"battery": bx(P.BATTERY_BOX), "esc": bx(P.ESC_BOX), "servo": bx(P.SERVO_BOX),
-            "motor": motor, "heatsink": heatsink(), "receiver": bx(P.RX_BOX),
+            "motor": motor, "heatsink": heatsink(), "receiver": bx(P.RX_BOX), "ubec": ubec_envelope(),
             **(dict(tech_envelopes(), current_sensor=bx(P.TECH_SENSOR_BOX)) if getattr(P, "TECH_PACK", False) else {})}

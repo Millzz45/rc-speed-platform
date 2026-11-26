@@ -9,7 +9,7 @@
    26.0
   ],
   "zrot": 0,
-  "vol": 48.8,
+  "vol": 48.7,
   "supports": "none",
   "layer": 0.2,
   "walls": "4 walls / 25% gyroid",
@@ -26,7 +26,7 @@
    26.0
   ],
   "zrot": 0,
-  "vol": 44.6,
+  "vol": 44.5,
   "supports": "none",
   "layer": 0.2,
   "walls": "4 walls / 25% gyroid",
@@ -270,6 +270,23 @@
   "walls": "100%",
   "note": "",
   "hours": 0.2
+ },
+ {
+  "part": "ubec_bridge",
+  "material": "PETG",
+  "qty": 1,
+  "size": [
+   41.5,
+   28.6,
+   21.1
+  ],
+  "zrot": 0,
+  "vol": 2.7,
+  "supports": "none",
+  "layer": 0.2,
+  "walls": "100%",
+  "note": "D60: fan supply sleeve; bar face on the bed, the sleeve roof is a 6.4 mm bridge; held by the 2 rear servo-tab screws (D60b)",
+  "hours": 0.5
  },
  {
   "part": "bulkhead_rL",
@@ -817,7 +834,7 @@
  },
  {
   "part": "wheel_hex",
-  "material": "PETG-CF",
+  "material": "PETG",
   "qty": 4,
   "size": [
    12.0,
@@ -829,7 +846,7 @@
   "supports": "none",
   "layer": 0.12,
   "walls": "100%",
-  "note": "wear part",
+  "note": "wear part; D59: plain PETG (in-plane 47 MPa against PETG-CF's 35 [estimate]: the drive-pin slot bears in the layer plane)",
   "hours": 0.2
  },
  {
@@ -859,12 +876,12 @@
    12.0
   ],
   "zrot": 0,
-  "vol": 4.6,
+  "vol": 4.4,
   "supports": "none",
   "layer": 0.16,
   "walls": "100%",
   "note": "coupon: see rnd/stage3/coupons.md",
-  "hours": 0.7
+  "hours": 0.6
  },
  {
   "part": "C4_hinge_lug",
@@ -967,6 +984,23 @@
   "walls": "100%",
   "note": "coupon: see rnd/stage3/coupons.md",
   "hours": 1.3
+ },
+ {
+  "part": "G5_belt_gap_gauge",
+  "material": "PLA-CF",
+  "qty": 1,
+  "size": [
+   88.0,
+   22.0,
+   3.0
+  ],
+  "zrot": 0,
+  "vol": 4.3,
+  "supports": "none",
+  "layer": 0.16,
+  "walls": "100%",
+  "note": "coupon: see rnd/stage3/coupons.md",
+  "hours": 0.6
  },
  {
   "part": "C3_tread_rim_segment",

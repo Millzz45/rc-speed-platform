@@ -13,7 +13,7 @@ below. Every part fits a 176 × 176 mm bed.
 - **PETG-CF** (PETG with 5-15 % chopped carbon fibre) for every structural part, **PETG** for the small rings and tech
   tray, **TPU 95A** for the bumper and pads, **PLA** (or PLA-CF) for the gauges. Use a hardened-steel nozzle for CF.
 - **Dry PETG and PETG-CF first** (4-6 h at 65 °C): wet PETG strings and is weaker across layers.
-- Car parts, modelled volume: PETG 0 cm³, PETG-CF 408 cm³, TPU 95A 29 cm³; about 46.5<!--D:print_hours_car=46.5--> h of printing [estimate from volume].
+- Car parts, modelled volume: PETG 5 cm³, PETG-CF 406 cm³, PLA-CF 4 cm³, TPU 95A 29 cm³; about 47.6<!--D:print_hours_car=47.6--> h of printing [estimate from volume].
 
 ## Print order
 
@@ -40,6 +40,7 @@ below. Every part fits a 176 × 176 mm bed.
 | `rear_spacer.stl` | 1 | PETG-CF | 0.2 | 4 walls / 100% | none | car | D53: flat as fitted (a 3 mm plate, its 4 floor-screw holes vertical): nothing overhangs; the 4 floor screws pass through it into the rear mount |
 | `battery_pad.stl` | 2 | TPU 95A | 0.2 | 100% | none | car |  |
 | `esc_pad.stl` | 2 | TPU 95A | 0.2 | 100% | none | car |  |
+| `ubec_bridge.stl` | 1 | PETG | 0.2 | 100% | none | car | D60: fan supply sleeve; bar face on the bed, the sleeve roof is a 6.4 mm bridge; held by the 2 rear servo-tab screws (D60b) |
 | `bulkhead_rL.stl` | 1 | PETG-CF | 0.16 | 5 walls / 40% | none | car | D57d rear LEFT saddle (mark L): cheek inner face down (bearing seat round) |
 | `bulkhead_rR.stl` | 1 | PETG-CF | 0.16 | 5 walls / 40% | none | car | D57d rear RIGHT saddle (mark R): mirror of rL |
 | `bulkhead_fL.stl` | 1 | PETG-CF | 0.16 | 5 walls / 40% | none | car | D46 front LEFT: diff seat offset for a whole-tooth front belt (mark L) |
@@ -72,7 +73,8 @@ below. Every part fits a 176 × 176 mm bed.
 | `lay_spacer_head.stl` | 1 | PETG-CF | 0.16 | 100% | none | car | ring between the axle screw head and the motor plate (D50) |
 | `lay_spacer_in.stl` | 1 | PETG-CF | 0.12 | 100% | none | car | thin ring on the axle inside the spur (D50) |
 | `lay_drum.stl` | 1 | PETG-CF | 0.12 | 100% | none | car | spur flange down; wear part |
-| `wheel_hex.stl` | 4 | PETG-CF | 0.12 | 100% | none | car | wear part |
+| `wheel_hex.stl` | 4 | PETG | 0.12 | 100% | none | car | wear part; D59: plain PETG (in-plane 47 MPa against PETG-CF's 35 [estimate]: the drive-pin slot bears in the layer plane) |
+| `G5_belt_gap_gauge.stl` | 1 | PLA-CF | 0.16 | 100% | none | car | coupon: see rnd/stage3/coupons.md |
 | `rim.stl` | 4 | PETG-CF | 0.12 | 5 walls / 25% | organic (D53 sliced: 5.0 g under the 52 mm face-web bridges) | spare / plain rim | D45: inboard face down; bought Tamiya 54994 belted tyre CA-glued to both bead seats; balance <= 0.5 g |
 | `tech_tray.stl` | 1 | PETG | 0.2 | 3 walls / 100% (3 mm plate) | none | tech pack | D51: flat, pockets up; 3 M3 screws into the deck bosses' captive hex nuts on washers (D55) |
 | `tech_lid.stl` | 1 | PETG | 0.2 | 2 walls / 100% (1 mm skin) | none | tech pack | D51: top on the bed, walls up; snaps over the tray edges |
@@ -95,12 +97,12 @@ no retraction tuning needed for these simple shapes. Brim only where the slicer 
 The body is 9<!--D:gt2_parts=9--> prints in `stl/body_gt2/`: six skin panels (front, middle, rear, left and right), two carrier
 plates and the wing. The panels are a **1.2<!--D:gt2_wall=1.2--> mm skin**: 2 lines on a 0.6 mm nozzle or 3 on a 0.4. Print them with the
 paint side up and tree supports touching the inside only; every panel and the wing fit the 176 mm bed as turned in the file.
-About 341.5<!--D:gt2_g=341.5--> g of filament [estimate from volume].
+About 336.1<!--D:gt2_g=336.1--> g of filament [estimate from volume].
 
 | File | Material | Walls / infill | Supports | Size mm (as printed) | g [estimate] |
 |---|---|---|---|---|---|
-| `body_gt2/gt2_body_front_L.stl` | PETG | solid skin (2 lines at 0.6 mm) | tree, inside only (paint side clean) | 168 × 104 × 92 | 39.0 |
-| `body_gt2/gt2_body_front_R.stl` | PETG | solid skin (2 lines at 0.6 mm) | tree, inside only (paint side clean) | 168 × 111 × 92 | 42.6 |
+| `body_gt2/gt2_body_front_L.stl` | PETG | solid skin (2 lines at 0.6 mm) | tree, inside only (paint side clean) | 160 × 96 × 92 | 36.3 |
+| `body_gt2/gt2_body_front_R.stl` | PETG | solid skin (2 lines at 0.6 mm) | tree, inside only (paint side clean) | 160 × 102 × 92 | 39.9 |
 | `body_gt2/gt2_body_mid_L.stl` | PETG | solid skin (2 lines at 0.6 mm) | tree, inside only (paint side clean) | 139 × 90 × 100 | 41.5 |
 | `body_gt2/gt2_body_mid_R.stl` | PETG | solid skin (2 lines at 0.6 mm) | tree, inside only (paint side clean) | 139 × 97 × 100 | 43.6 |
 | `body_gt2/gt2_body_rear_L.stl` | PETG | solid skin (2 lines at 0.6 mm) | tree, inside only (paint side clean) | 149 × 93 × 92 | 49.8 |
@@ -126,6 +128,7 @@ About 341.5<!--D:gt2_g=341.5--> g of filament [estimate from volume].
 | ☐ | `rear_spacer` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `battery_pad` | 2 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `esc_pad` | 2 | nut slots clear, screw holes round, no stringing in the hex pockets |
+| ☐ | `ubec_bridge` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `bulkhead_rL` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `bulkhead_rR` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `bulkhead_fL` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
@@ -159,5 +162,6 @@ About 341.5<!--D:gt2_g=341.5--> g of filament [estimate from volume].
 | ☐ | `lay_spacer_in` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `lay_drum` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
 | ☐ | `wheel_hex` | 4 | nut slots clear, screw holes round, no stringing in the hex pockets |
+| ☐ | `G5_belt_gap_gauge` | 1 | nut slots clear, screw holes round, no stringing in the hex pockets |
 
 ![printed parts](img/parts_sheet.png)

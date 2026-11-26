@@ -50,8 +50,12 @@ def insert_block():
     b = box(40, 20, 4, 0, 0, 0)
     for x in (12, 28):
         b += cyl_z(14, 8, x, 10, 4)                     # D55: 14 mm (was 12) so the washer pocket keeps 1 mm walls
-    for i, x in enumerate((12, 28)):         # D55: boss 1 = hex nut on a washer, boss 2 = hex nut alone (the two kinds on the car)
-        b = AN.anchor(b, (x, 10, 12), (0, 0, -1), f"coupon C2 boss {i + 1}", kinds=(("washer",) if i == 0 else ("hex",)), pad_ok=False)
+    # D59: boss 2 copies the car's weakest nut joint, the servo post: a flat 3.5 mm from the screw (the post's servo-side
+    # face), the washer slot opening through it, nut 4 mm deep. Boss 1 = the ordinary washer joint. (D55: boss 2 was a bare hex.)
+    b -= box(10, 20, 8.01, 28 + 3.5, 0, 4)
+    for i, x in enumerate((12, 28)):
+        b = AN.anchor(b, (x, 10, 12), (0, 0, -1), f"coupon C2 boss {i + 1}", kinds=("washer",), pad_ok=False,
+                      **(dict(open_mouth=True, t_try=(4.0, 3.5, 3.0)) if i == 1 else {}))
     b -= box(24, 4, 10, 8, 8, -1)                          # strap slot through the base
     return b
 
@@ -136,6 +140,20 @@ def axle_pin_gauge():
     return b
 
 
+def belt_gap_gauge():
+    """G5 (D60): a comb with six fingers 3.5 .. 6.0 mm wide in 0.5 mm steps, for the gap between the flanges of the bought
+    diff's belt pulley. That gap is published nowhere (rnd/market/belt_upgrade_d60.md) and decides whether a 4 mm or 5 mm
+    belt fits; the 3 mm belt is at 0.8x its catalogue rating in a full-grip launch (R3). The widest finger that drops
+    between the flanges down to the teeth = the gap. Prints flat: the finger widths are in the bed plane."""
+    widths = [3.5, 4.0, 4.5, 5.0, 5.5, 6.0]
+    b = box(10 + 13 * len(widths), 14, 3, 0, 0, 0)
+    for i, w in enumerate(widths):
+        x = 11.5 + 13 * i
+        b += box(w, 8, 3, x - w / 2, 13.99, 0)             # the finger: 8 mm long, 3 mm thick, w wide
+        b -= _notches(i + 1, x - 5.0, 5, 3, 1.6)            # 1 notch = 3.5 mm, then +0.5 mm per notch
+    return b
+
+
 COUPONS = {
     "C1_tolerance_ladder": tolerance_ladder,
     "C2_insert_block": insert_block,
@@ -145,6 +163,7 @@ COUPONS = {
     "G2_diff_span_gauge": diff_span_gauge,
     "G3_motor_face_gauge": motor_face_gauge,
     "G4_axle_pin_gauge": axle_pin_gauge,
+    "G5_belt_gap_gauge": belt_gap_gauge,
     "C3_tread_rim_segment": lambda: tread_ring()[0],
     "C3_tread_segment": lambda: tread_ring()[1],
 }

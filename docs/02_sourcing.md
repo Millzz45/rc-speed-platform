@@ -12,7 +12,7 @@ means the page blocked reading and the price is from a search listing. Prices mo
 
 ## 50 mph kit (no electronics)
 
-Modelled: 55.6<!--D:50k_mph=55.6--> mph mid case, 55.4<!--D:50k_mph_hi=55.4--> mph high-drag, 48<!--D:50k_runway=48--> m of runway to 90 % of top speed, 17.3<!--D:50k_amps=17.3--> A at top speed [estimate: speed model + CFD drag band]. **Total 433.13<!--D:50k_usd=433.13--> USD** (real parts 175.01<!--D:50k_real=175.01--> USD; 7.79<!--D:50k_usd_mph=7.79--> USD per mph). File: `bom/bom_50k.csv`.
+Modelled: 55.8<!--D:50k_mph=55.8--> mph mid case, 55.6<!--D:50k_mph_hi=55.6--> mph high-drag, 48<!--D:50k_runway=48--> m of runway to 90 % of top speed, 16.4<!--D:50k_amps=16.4--> A at top speed [estimate: speed model + CFD drag band]. **Total 433.13<!--D:50k_usd=433.13--> USD** (real parts 175.01<!--D:50k_real=175.01--> USD; 7.76<!--D:50k_usd_mph=7.76--> USD per mph). File: `bom/bom_50k.csv`.
 
 | Category | Part | Qty | Line USD | Buy |
 |---|---|---|---|---|
@@ -57,7 +57,7 @@ Modelled: 55.6<!--D:50k_mph=55.6--> mph mid case, 55.4<!--D:50k_mph_hi=55.4--> m
 | shipping | Shipping allowance (rcjaz, AliExpress, Zeee, eBay, McMaster-Carr, BuddyRC, MW Components) | 1.0 | 54.11 | - |
 ## 50 mph complete
 
-Modelled: 55.6<!--D:50c_mph=55.6--> mph mid case, 55.4<!--D:50c_mph_hi=55.4--> mph high-drag, 48<!--D:50c_runway=48--> m of runway to 90 % of top speed, 17.3<!--D:50c_amps=17.3--> A at top speed [estimate: speed model + CFD drag band]. **Total 612.98<!--D:50c_usd=612.98--> USD** (real parts 344.36<!--D:50c_real=344.36--> USD; 11.02<!--D:50c_usd_mph=11.02--> USD per mph). File: `bom/bom_50c.csv`.
+Modelled: 55.8<!--D:50c_mph=55.8--> mph mid case, 55.6<!--D:50c_mph_hi=55.6--> mph high-drag, 48<!--D:50c_runway=48--> m of runway to 90 % of top speed, 16.4<!--D:50c_amps=16.4--> A at top speed [estimate: speed model + CFD drag band]. **Total 625.91<!--D:50c_usd=625.91--> USD** (real parts 357.29<!--D:50c_real=357.29--> USD; 11.22<!--D:50c_usd_mph=11.22--> USD per mph). File: `bom/bom_50c.csv`.
 
 | Category | Part | Qty | Line USD | Buy |
 |---|---|---|---|---|
@@ -91,6 +91,9 @@ Modelled: 55.6<!--D:50c_mph=55.6--> mph mid case, 55.4<!--D:50c_mph_hi=55.4--> m
 | real: electronics | DS3218MG 20 kg metal-gear servo (180 deg) | 1.0 | 14.99 | [link](https://www.aliexpress.us/item/3256808561278747.html) |
 | real: electronics | Surpass Hobby 3650 3900KV + 60A ESC combo | 1.0 | 49.09 | [link](https://www.aliexpress.us/item/3256809463381837.html) |
 | real: electronics | Aluminium 540 motor heat sink with twin fans (Jazrider JR-FAN2) | 1.0 | 5.11 | [link](https://www.rcjaz.com/jazrider-rc-aluminium-540-motor-heat-sink-gun-metal-wtwin-cooling-fans-p-90084314.html) |
+| real: electronics | 5 V regulator for the motor fans: RMRC 3A Power Regulator 5-6 V UBEC (RMRC3AUBEC), jumper on 5 V | 1.0 | 10.09 | [link](https://www.readymaderc.com/products/details/rmrc-3a-power-regulator-5-to-6-volt-ubec) |
+| real: electronics | Balance-plug tap cable for the fan regulator: JST-XH 2S to JST male (ReadyMadeRC JSTXH2S-JSTBAT) | 1 | 1.49 | [link](https://www.readymaderc.com/products/details/jst-xh-2s-balance-to-jst-male-battery-style-connector) |
+| real: electronics | Servo joiner cable, female to female, about 5 cm (ReadyMadeRC CABLE-JUMPER(JR)): regulator plug to fan plug | 1.0 | 1.35 | [link](https://www.readymaderc.com/products/details/jumper-cable-video-for-camera-transmitter-cables) |
 | real: electronics | XT60-female to T-plug-male charge lead, 1 ft (BuddyRC): charger to the T-plug pack | 1.0 | 2.49 | [link](https://www.buddyrc.com/products/charge-cable-xt60-female-to-ec3-male-adapter-cable) |
 | real: electronics | Turnigy 3500mAh 2S 60C LiPo, XT60 (130 x 42 x 18 mm, 168 g) [snippet] | 1 | 13.99 | [link](https://hobbyking.com/en_us/turnigy-3500mah-2s-60c-lipo-pack-w-xt60-connector.html) |
 | real: electronics | Radio: DumboRC X6 transmitter + X6FG / P6FG gyro receiver | 1 | 47.69 | [link](https://www.ebay.com/itm/257687587815) |
@@ -111,7 +114,7 @@ Modelled: 55.6<!--D:50c_mph=55.6--> mph mid case, 55.4<!--D:50c_mph_hi=55.4--> m
 | shipping | Shipping, RaceDayQuads parcel (charger, cutters) | 1 | 6.5 | - |
 ## 80 mph kit (no electronics)
 
-Modelled: 81.5<!--D:80k_mph=81.5--> mph mid case, 81.1<!--D:80k_mph_hi=81.1--> mph high-drag, 107<!--D:80k_runway=107--> m of runway to 90 % of top speed, 31.5<!--D:80k_amps=31.5--> A at top speed [estimate: speed model + CFD drag band]. **Total 433.13<!--D:80k_usd=433.13--> USD** (real parts 175.01<!--D:80k_real=175.01--> USD; 5.31<!--D:80k_usd_mph=5.31--> USD per mph). File: `bom/bom_80k.csv`.
+Modelled: 81.9<!--D:80k_mph=81.9--> mph mid case, 81.6<!--D:80k_mph_hi=81.6--> mph high-drag, 106<!--D:80k_runway=106--> m of runway to 90 % of top speed, 29.8<!--D:80k_amps=29.8--> A at top speed [estimate: speed model + CFD drag band]. **Total 433.13<!--D:80k_usd=433.13--> USD** (real parts 175.01<!--D:80k_real=175.01--> USD; 5.29<!--D:80k_usd_mph=5.29--> USD per mph). File: `bom/bom_80k.csv`.
 
 | Category | Part | Qty | Line USD | Buy |
 |---|---|---|---|---|
@@ -156,7 +159,7 @@ Modelled: 81.5<!--D:80k_mph=81.5--> mph mid case, 81.1<!--D:80k_mph_hi=81.1--> m
 | shipping | Shipping allowance (rcjaz, AliExpress, Zeee, eBay, McMaster-Carr, BuddyRC, MW Components) | 1.0 | 54.11 | - |
 ## 80 mph complete
 
-Modelled: 81.5<!--D:80c_mph=81.5--> mph mid case, 81.1<!--D:80c_mph_hi=81.1--> mph high-drag, 107<!--D:80c_runway=107--> m of runway to 90 % of top speed, 31.5<!--D:80c_amps=31.5--> A at top speed [estimate: speed model + CFD drag band]. **Total 633.98<!--D:80c_usd=633.98--> USD** (real parts 365.36<!--D:80c_real=365.36--> USD; 7.78<!--D:80c_usd_mph=7.78--> USD per mph). File: `bom/bom_80c.csv`.
+Modelled: 81.9<!--D:80c_mph=81.9--> mph mid case, 81.6<!--D:80c_mph_hi=81.6--> mph high-drag, 106<!--D:80c_runway=106--> m of runway to 90 % of top speed, 29.8<!--D:80c_amps=29.8--> A at top speed [estimate: speed model + CFD drag band]. **Total 647.41<!--D:80c_usd=647.41--> USD** (real parts 378.79<!--D:80c_real=378.79--> USD; 7.9<!--D:80c_usd_mph=7.9--> USD per mph). File: `bom/bom_80c.csv`.
 
 | Category | Part | Qty | Line USD | Buy |
 |---|---|---|---|---|
@@ -190,6 +193,9 @@ Modelled: 81.5<!--D:80c_mph=81.5--> mph mid case, 81.1<!--D:80c_mph_hi=81.1--> m
 | real: electronics | DS3218MG 20 kg metal-gear servo (180 deg) | 1.0 | 14.99 | [link](https://www.aliexpress.us/item/3256808561278747.html) |
 | real: electronics | Surpass Hobby 3650 3900KV + 60A ESC combo | 1.0 | 49.09 | [link](https://www.aliexpress.us/item/3256809463381837.html) |
 | real: electronics | Aluminium 540 motor heat sink with twin fans (Jazrider JR-FAN2) | 1.0 | 5.11 | [link](https://www.rcjaz.com/jazrider-rc-aluminium-540-motor-heat-sink-gun-metal-wtwin-cooling-fans-p-90084314.html) |
+| real: electronics | 5 V regulator for the motor fans: RMRC 3A Power Regulator 5-6 V UBEC (RMRC3AUBEC), jumper on 5 V | 1.0 | 10.09 | [link](https://www.readymaderc.com/products/details/rmrc-3a-power-regulator-5-to-6-volt-ubec) |
+| real: electronics | Balance-plug tap cable for the fan regulator: JST-XH 3S to JST male (ReadyMadeRC JSTXH3S-JSTBAT) | 1.0 | 1.99 | [link](https://www.readymaderc.com/products/details/jst-xh-3s-balance-to-jst-male-battery-style-connector) |
+| real: electronics | Servo joiner cable, female to female, about 5 cm (ReadyMadeRC CABLE-JUMPER(JR)): regulator plug to fan plug | 1.0 | 1.35 | [link](https://www.readymaderc.com/products/details/jumper-cable-video-for-camera-transmitter-cables) |
 | real: electronics | Zeee 3S 5200 50C soft case, T-plug (Deans) fitted + a loose spare XT60 | 1.0 | 34.99 | [link](https://zeeebattery.com/products/zeee-3s-lipo-battery-5200mah-11-1v-50c-xt60) |
 | real: electronics | XT60-female to T-plug-male charge lead, 1 ft (BuddyRC): charger to the T-plug pack | 1.0 | 2.49 | [link](https://www.buddyrc.com/products/charge-cable-xt60-female-to-ec3-male-adapter-cable) |
 | real: electronics | Radio: DumboRC X6 transmitter + X6FG / P6FG gyro receiver | 1 | 47.69 | [link](https://www.ebay.com/itm/257687587815) |

@@ -24,7 +24,7 @@ import coupons as CP
 import anchors as AN
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(ROOT, "..", "out")
+OUT = os.path.join(ROOT, "..", P.OUT_NAME)
 STL, MF, PREV = (os.path.join(OUT, d) for d in ("stl", "3mf", "preview"))
 
 ROTATED = {}        # id(shape) -> baked-in Z rotation (deg)
@@ -68,6 +68,7 @@ CHASSIS = {
     **({"tech_tray": (C.tech_tray, P.PETG, 1, FLAT, "none", 0.20, "3 walls / 100% (3 mm plate)", "D51: flat, pockets up; 3 M3 screws into the deck bosses' captive hex nuts on washers (D55)"),
         "tech_lid":  (C.tech_lid, P.PETG, 1, FLIP, "none", 0.20, "2 walls / 100% (1 mm skin)", "D51: top on the bed, walls up; snaps over the tray edges"),} if getattr(P, "TECH_PACK", False) else {}),
     "esc_pad":     (lambda: C.pad(32), P.TPU, 2, FLAT, "none", 0.20, "100%", ""),
+    "ubec_bridge": (C.ubec_bridge, P.PETG, 1, Rot(-90, 0, 0), "none", 0.20, "100%", "D60: fan supply sleeve; bar face on the bed, the sleeve roof is a 6.4 mm bridge; held by the 2 rear servo-tab screws (D60b)"),
 }
 
 UP_Y = Rot(90, 0, 0)        # Y axis -> Z: bearing seats print as round vertical holes
@@ -111,7 +112,7 @@ RUNNING = {
     "lay_drum":      (RG.lay_drum, P.PETG_CF, 1, UP_Y, "none", 0.12, "100%", "spur flange down; wear part"),
     # D46: no spare drum. A slower ratio now means new belts too (the front diff offset is solved per LAY_PULLEY_T):
     # the stock-belt fallback is LAY_PULLEY_T = 21 (95.5 mph, 144T + 91T belts): rebuild reprints lay_drum + bulkhead_fL/fR
-    "wheel_hex":     (RG.wheel_hex, P.PETG_CF, 4, FLAT, "none", 0.12, "100%", "wear part"),
+    "wheel_hex":     (RG.wheel_hex, P.PETG, 4, FLAT, "none", 0.12, "100%", "wear part; D59: plain PETG (in-plane 47 MPa against PETG-CF's 35 [estimate]: the drive-pin slot bears in the layer plane)"),
 }
 COUPON_PARTS = {k: (f, P.PLA_CF if k.startswith("G") else (P.TPU if "tread_segment" in k else P.PETG_CF), 1, FLAT,
                     "none", 0.16, "100%", "coupon: see rnd/stage3/coupons.md") for k, f in CP.COUPONS.items()}

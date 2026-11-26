@@ -105,8 +105,12 @@ def _insert(part, entry, a, tag, why):
     return part - _cyl(Vector(*entry) - a * 0.01, a, P.M3_INSERT_D, P.M3_INSERT_L + 0.01)
 
 
-def anchor(part, entry, axis, tag, far_ok=False, t_try=None, tip_hole=TIP_HOLE, kinds=("washer", "hex"), pad_ok=True, keep=None):
-    """D55: try a DIN 934 hex nut on a DIN 125 washer first ("washer"); where its 9.3 mm wall envelope will not fit, a hex
+def anchor(part, entry, axis, tag, far_ok=False, t_try=None, tip_hole=TIP_HOLE, kinds=("washer", "hex"), pad_ok=True, keep=None, open_mouth=False):
+    """D59 open_mouth: the slot may open through a face that is CLOSER to the screw than the seat's 1 mm wall envelope
+    (the servo posts: the servo case stands 4.25 mm from the screw and closes the mouth once fitted). The envelope is then
+    only checked up to that face, and the site records `mouth_mm` (screw axis to the open face); rnd/tests/test_fasteners.py
+    leaves out the part of the washer face and of its outline that lies within 1 mm of the open face.
+    D55: try a DIN 934 hex nut on a DIN 125 washer first ("washer"); where its 9.3 mm wall envelope will not fit, a hex
     nut alone ("hex", 7.8 mm envelope, the D53 square-nut size). Only if neither fits does the site fall back to an insert
     pilot (the build reports it; R38 fails on any insert)."""
     a, u, v = _basis(axis)
@@ -161,6 +165,10 @@ def anchor(part, entry, axis, tag, far_ok=False, t_try=None, tip_hole=TIP_HOLE, 
                     wslot = _box_along(cw, d, max(ex - 1.0, 0.1), POCKET_W, a, POCKET_WT) if WSH else None
                 screw = _cyl(e - a * 1.0, a, P.M3_CLEAR, t + PM + tip_hole + 1.0)
                 ring = (grown - core) - screw
+                mouth = None
+                if open_mouth and name != "far":
+                    mouth = _exit_dist(local, c, d, step=0.05) - 0.05          # screw axis to the face the slot opens through
+                    ring = ring - _box_along(c + d * mouth, d, 30.0, 60.0, a, 60.0)   # nothing to check beyond that face
                 breach = _vol(ring - local)
                 if name != "far" and WSH:
                     breach += _vol(wslot - local)
@@ -168,7 +176,7 @@ def anchor(part, entry, axis, tag, far_ok=False, t_try=None, tip_hole=TIP_HOLE, 
                 if kind in PAD_KINDS and ex >= EW / 2 - 0.5 and name != "far":
                     pads.append((breach, kind, t, name, ex, d, core, screw, c, PM, EW))
                 if breach < 0.5 and tip_ok and ex >= EW / 2 - 0.5 and (best is None or ex < best[0]):
-                    best = (ex, d, name, core, screw, breach)
+                    best = (ex, d, name, core, screw, breach, mouth)
             if best is not None and kind not in fits:
                 fits[kind] = (best, t, PM, c)
                 break                                    # shallowest t that fits this kind
@@ -182,11 +190,12 @@ def anchor(part, entry, axis, tag, far_ok=False, t_try=None, tip_hole=TIP_HOLE, 
     # then the least new plastic. check_fit proves each pad clears its neighbours.
 
     def take_fit(kind):
-        (ex, d, name, core, screw, breach), t, PM, c = fits[kind]
+        (ex, d, name, core, screw, breach, mouth), t, PM, c = fits[kind]
         REGISTRY.append(dict(tag=tag, mode="nut", nut_kind=kind, entry=[round(float(x), 2) for x in entry],
                              axis=[round(float(x), 3) for x in a], t=t, slot=name, slot_dir=[round(float(x), 3) for x in d],
                              slot_len=round(ex, 2), breach_mm3=round(breach, 3), nut=[round(float(x), 2) for x in c],
-                             pocket_mm=round(PM, 2), hole_mm=round(t + PM + tip_hole, 2)))
+                             pocket_mm=round(PM, 2), hole_mm=round(t + PM + tip_hole, 2),
+                             **({"mouth_mm": round(mouth, 2)} if mouth is not None and mouth < (POCKET_W if KINDS[kind][1] else POCKET_S) / 2 + WALL else {})))
         return (part - core) - screw
 
     def best_pad(kind):

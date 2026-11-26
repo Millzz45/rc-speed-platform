@@ -18,7 +18,8 @@ ALLOWED = {("tub_front", "tub_mid"), ("tub_mid", "tub_rear"), ("deck_front", "de
 
 
 # intended contact in the running gear: pinned joints, ball cups, bearings in seats, bolted stacks
-JOINTS = [("bulkhead", "arm"), ("bulkhead", "link"), ("bulkhead", "e_diff"), ("bulkhead", "e_cvd"),
+JOINTS = [("ubec_bridge", "e_ubec"),                # D60: the sleeve's crush ribs pinch the regulator by design (0.1 mm)
+          ("bulkhead", "arm"), ("bulkhead", "link"), ("bulkhead", "e_diff"), ("bulkhead", "e_cvd"),
           ("arm", "upright"), ("arm", "knuckle"), ("arm", "shock"), ("link", "upright"), ("link", "knuckle"),
           ("shock", "tower"), ("knuckle", "tierod"), ("knuckle", "e_cvd"), ("upright", "e_cvd"),
           ("crank", "drag_link"), ("crank", "tierod"), ("crank", "servo_link"), ("servo_link", "e_servo"),
@@ -35,7 +36,7 @@ def joint(a, b):
 def parts(body=True):
     p = {"tub_front": C.tub_front(), "tub_mid": C.tub_mid(), "tub_rear": C.tub_rear(), "deck_front": C.deck_front(),
          "deck_mid": C.deck_mid(), "deck_rear": C.deck_rear(), "front_mount": C.front_mount(), "rear_mount": C.rear_mount(),
-         "bumper": C.bumper(),
+         "bumper": C.bumper(), "ubec_bridge": C.ubec_bridge(),              # D60: fan supply sleeve on the servo
          }
     import aero as AE                                                        # D53: rear spacer (always) + the CFD-kept diffuser
     p["rear_spacer"] = AE.rear_spacer()
@@ -82,8 +83,10 @@ def main():
               f"Y{bb.min.Y:.0f}..{bb.max.Y:.0f} Z{bb.min.Z:.0f}..{bb.max.Z:.0f}")
     import json, os
     pj = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "out", "bodies", "shell", "parts.json")
-    g2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "out", "body_gt2", "parts.json")
-    if os.path.exists(pj) and "--gt2" not in sys.argv:
+    g2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", P.OUT_NAME, "body_gt2", "parts.json")
+    if "--nobody" in sys.argv:                  # D58.2: the bare chassis (a bought body goes on the post adapter)
+        body_bad, bname = [], "no"
+    elif os.path.exists(pj) and "--gt2" not in sys.argv and not P.VARIANT:   # the scale shell body exists at 263 mm only
         body_bad, bname = json.load(open(pj)).get("clashes", []), "scale shell"
     elif os.path.exists(g2):                    # D56: the original GT-2 body (cad/body_gt2.py checks every chassis part exactly)
         ck = json.load(open(g2))["checks"]
